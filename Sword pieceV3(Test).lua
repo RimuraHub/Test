@@ -9,8 +9,8 @@ local Window = redzlib:MakeWindow({
 local Tab1 = Window:MakeTab({"Auto Farm - ออโต้ฟาม", "Home"})
 local Tab2 = Window:MakeTab({"Teleport - วาป", "user"})
 local Tab3 = Window:MakeTab({"other - อื่นๆ", "cherry"})
-local Tab4 = Window:MakeTab({"Skills - สกิล", "swords"})
-local Tab5 = Window:MakeTab({"SkillsV2 - สกิลวี2", "swords"})
+local Tab4 = Window:MakeTab({"SpamSkills - สแปมสกิล", "swords"})
+local Tab5 = Window:MakeTab({"SpamSkillsV2 - สแปมสกิลวี2", "swords"})
 local Tab6 = Window:MakeTab({"summonweapon - เสกอาวุธ", "swords"})
 
 
@@ -426,8 +426,6 @@ local Toggle3 = Tab3:AddToggle({
   end
 })
 
-local Section= Tab4:AddSection({"spamskills[equipweapon] - สแปมสกิล[ถืออาวุธ]"})
-
 local Section= Tab4:AddSection({"Skill Z - สกิล Z"})
 
 local Toggle1 = Tab4:AddToggle({
@@ -551,9 +549,7 @@ local Toggle1 = Tab4:AddToggle({
   end
 })
 
-local Section= Tab5:AddSection({"spamskills[prohibitequipweapon] - สแปมสกิล[ห้ามถืออาวุธ]"})
-
-local Section= Tab6:AddSection({"Skill 5 - สกิล Z"})
+local Section= Tab5:AddSection({"Skill Z - สกิล Z"})
 
 local Toggle1 = Tab5:AddToggle({
   Name = "DarkYoru",
