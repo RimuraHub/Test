@@ -11,7 +11,7 @@ local Tab2 = Window:MakeTab({"Teleport - วาป", "swords"})
 local Tab3 = Window:MakeTab({"other - อื่นๆ", "swords"})
 local Tab4 = Window:MakeTab({"Gam - เจม", "swords"})
 
-redzlib:SetTheme("Dark")
+redzlib:SetTheme("Purple")
 
 
 local Section = Tab1:AddSection({"Select Weapon - เลือกอาวุธ"})
