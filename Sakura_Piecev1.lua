@@ -11,7 +11,7 @@ local Tab2 = Window:MakeTab({"Teleport - วาป", "swords"})
 local Tab3 = Window:MakeTab({"other - อื่นๆ", "swords"})
 local Tab4 = Window:MakeTab({"Gam - เจม", "swords"})
 
-redzlib:SetTheme("Purple")
+redzlib:SetTheme("Dark")
 
 
 local Section = Tab1:AddSection({"Select Weapon - เลือกอาวุธ"})
@@ -109,12 +109,12 @@ spawn(function()
     while wait() do
         pcall(function()
             if _G.a then
-                for i, v in pairs(game:GetService("Workspace").Mon:GetDescendants()) do
+                for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
                     if v.Name == MobFarm and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health >= 1 then
                         repeat
                            A()
                             wait()
- game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = GetClosestPlayer().RootPart.CFrame*CFrame.new(0,5,0)*CFrame.Angles(math.rad(-90),0,0)
+ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, 2)
                         until _G.a == false or v.Humanoid.Health <= 0
                     end
                 end
