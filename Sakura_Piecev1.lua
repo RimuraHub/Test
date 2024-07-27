@@ -10,6 +10,7 @@ local Tab1 = Window:MakeTab({"Auto Farm - ออโต้ฟาม", "swords"})
 local Tab2 = Window:MakeTab({"Teleport - วาป", "swords"})
 local Tab3 = Window:MakeTab({"other - อื่นๆ", "swords"})
 local Tab4 = Window:MakeTab({"Gam - เจม", "swords"})
+local Tab5 = Window:MakeTab({"credit - เครติด", "user"})
 
 redzlib:SetTheme("Dark")
 
@@ -365,7 +366,11 @@ end
   end
 })
 
-
+Tab5:AddDiscordInvite({
+  Name = "RIMURA Hub | Community",
+  Logo = "rbxassetid://18678079705",
+  Invite = "https://discord.com/invite/Dmg8EJ2neK"
+})
 
 
 
