@@ -1,0 +1,8 @@
+while wait() undo
+local args = {
+    [1] = "Item",
+    [2] = "Keep"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent.InventoryEvent:FireServer(unpack(args))
+end
