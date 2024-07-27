@@ -114,7 +114,7 @@ spawn(function()
                         repeat
                            A()
                             wait()
- game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = GetClosestPlayer().RootPart.CFrame*CFrame.new(0,5,0)*CFrame.Angles(math.rad(-90),0,0)
+ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, 2)
                         until _G.a == false or v.Humanoid.Health <= 0
                     end
                 end
@@ -317,7 +317,7 @@ end
 end
 })
 
-local Toggle4 = Tab1:AddToggle({
+local Toggle1 = Tab4:AddToggle({
   Name = "Auto Mining",
   Description = "ออโต้ขุด",
   Default = false,
@@ -327,7 +327,7 @@ while _G.gg do
     wait()
     for i, v in pairs(game:GetService("Workspace")["Mining Gem"]:GetDescendants()) do
         if v:FindFirstChild("ProximityPrompt") then
-            fireproximityprompt(v.ProximityPrompt, 1)
+            fireproximityprompt(v.ProximityPrompt, 0)
         end
     end
 end
