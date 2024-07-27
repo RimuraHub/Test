@@ -12,6 +12,7 @@ local Tab3 = Window:MakeTab({"other - อื่นๆ", "cherry"})
 local Tab4 = Window:MakeTab({"SpamSkills - สแปมสกิล", "swords"})
 local Tab5 = Window:MakeTab({"SpamSkillsV2 - สแปมสกิลวี2", "swords"})
 local Tab6 = Window:MakeTab({"summonweapon - เสกอาวุธ", "swords"})
+local Tab7 = Window:MakeTab({"credit - เครติด", "user"})
 
 
 redzlib:SetTheme("Purple")
@@ -728,7 +729,11 @@ Tab6:AddButton({"Guitar", function()
 game:GetService("ReplicatedStorage").Remotes.Inventory:FireServer("Guitar")
 end})
 
-
+Tab7:AddDiscordInvite({
+  Name = "RIMURA Hub | Community",
+  Logo = "rbxassetid://18678079705",
+  Invite = "https://discord.com/invite/Dmg8EJ2neK"
+})
 
 
 
