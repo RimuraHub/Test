@@ -9,7 +9,7 @@ local Window = redzlib:MakeWindow({
 local Tab1 = Window:MakeTab({"Auto Farm - ออโต้ฟาม", "swords"})
 local Tab2 = Window:MakeTab({"Teleport - วาป", "swords"})
 local Tab3 = Window:MakeTab({"other - อื่นๆ", "swords"})
-local Tab4 = Window:MakeTab({"Gam - เจม", "swords"})
+local Tab4 = Window:MakeTab({"MAP - แมพ", "swords"})
 local Tab5 = Window:MakeTab({"credit - เครติด", "user"})
 
 redzlib:SetTheme("Dark")
@@ -44,7 +44,6 @@ Tab1:AddButton({
   Name = "RefreshWeaponList",
   Description = "รีเฟรชรายการอาวุธ",
   Callback = function()
-    refreshWeaponList()
     Dropdown:Refresh(Weaponlist, true)
   end
 })
@@ -336,6 +335,26 @@ local Toggle3 = Tab3:AddToggle({
   end
 })
 
+
+local Toggle1 = Tab4:AddToggle({
+  Name = "Auto click toji Dagger",
+  Description = "ออโต้คลิกกริชโทจิ",
+  Default = false,
+  Callback = function(hhv)
+  _G.gg = hhv
+while _G.gg do
+    wait()
+    for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
+        if v:FindFirstChild("ProximityPrompt") then
+            fireproximityprompt(v.ProximityPrompt, 0)
+        end
+    end
+end
+  end
+})
+
+local Section = Tab4:AddSection({"Gam - เจม"})
+
 Tab4:AddButton({"MiningNoClowdown - ขุดแบบnoclowdown", function()
 for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
 if v.ClassName == "ProximityPrompt" then
@@ -367,10 +386,14 @@ end
 })
 
 Tab5:AddDiscordInvite({
-  Name = "RIMURA Hub | Community",
+  Name = "redz Hub | Community",
   Logo = "rbxassetid://18678079705",
   Invite = "https://discord.com/invite/Dmg8EJ2neK"
 })
+
+
+
+
 
 
 
