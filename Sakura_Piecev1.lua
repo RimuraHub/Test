@@ -21,16 +21,12 @@ local Section = Tab1:AddSection({"Select Weapon - เลือกอาวุธ
 local Weaponlist = {}
 local Weapon = nil
 
-local function refreshWeaponList()
-    Weaponlist = {}
     for _,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
         table.insert(Weaponlist,v.Name)
     end
-end
 
-refreshWeaponList()
 
-local Dropdown = Tab1:AddDropdown({
+local Weaponlist = Tab1:AddDropdown({
   Name = "Select Weapon",
   Description = "เลือกอาวุธ",
   Options = Weaponlist,
@@ -41,13 +37,6 @@ local Dropdown = Tab1:AddDropdown({
   end
 })
 
-Tab1:AddButton({
-  Name = "RefreshWeaponList",
-  Description = "รีเฟรชรายการอาวุธ",
-  Callback = function()
-    Dropdown:Refresh(Weaponlist, true)
-  end
-})
 
 local Toggle1 = Tab1:AddToggle({
   Name = "Auto Equip",
@@ -400,6 +389,48 @@ end
   end
 })
 
+local Section = Tab4:AddSection({"Skill - สกิล"})
+
+Tab4:AddButton({"Skill noclowdow - สกิลไม่มีคูดาว", function()
+v = hookfunction(wait, function(seconds)
+return v()
+end)
+end})
+
+local Section = Tab4:AddSection({"Auto spam- ออโต้สแปมสกิล"})
+
+local Section = Tab4:AddSection({"Z"})
+
+local Toggle1 = Tab4:AddToggle({
+  Name = "sand fruit",
+  Description = "ผลทราย",
+  Default = false,
+  Callback = function(hhv)
+  _G.gg = hhv
+while _G.gg do
+    wait(0.5)
+game:GetService("Players").LocalPlayer.Character.Sand.SkillZ.RemoteEvent:FireServer()
+end
+  end
+})
+
+local Section = Tab4:AddSection({"X"})
+
+local Section = Tab4:AddSection({"C"})
+
+local Toggle1 = Tab4:AddToggle({
+  Name = "Cursed Sword[Bug]",
+  Description = "ดาบยูตะ[บัค]",
+  Default = false,
+  Callback = function(hhv)
+  _G.gg = hhv
+while _G.gg do
+    wait(0.5)
+game:GetService("Players").LocalPlayer.Character.CursedSword.SkillC.RemoteEvent:FireServer()
+end
+  end
+})
+
 local Toggle1 = Tab5:AddToggle({
   Name = "Auto Skill[sand fruit]",
   Description = "ออโต้สกิล[ผลทราย]",
@@ -422,7 +453,7 @@ local Toggle1 = Tab5:AddToggle({
 while _G.gg do
     wait(2)
 while wait(1) do
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2288.029052734375, 91.59147644042969, -510.5782775878906)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2113.53564453125, 91.59420013427734, -512.038330078125)
 end
 end
   end
@@ -437,7 +468,7 @@ local Toggle1 = Tab5:AddToggle({
 while _G.gg do
     wait(1)
 while wait(2) do
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2113.53564453125, 91.59420013427734, -512.038330078125)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2288.029052734375, 91.59147644042969, -510.5782775878906)
 end
 end
   end
