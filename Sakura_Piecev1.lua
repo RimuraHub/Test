@@ -422,7 +422,7 @@ local Toggle1 = Tab5:AddToggle({
 while _G.gg do
     wait(2)
 while wait(1) do
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2113.53564453125, 91.59420013427734, -512.038330078125)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2288.029052734375, 91.59147644042969, -510.5782775878906)
 end
 end
   end
@@ -437,7 +437,7 @@ local Toggle1 = Tab5:AddToggle({
 while _G.gg do
     wait(1)
 while wait(2) do
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2288.029052734375, 91.59147644042969, -510.5782775878906)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2113.53564453125, 91.59420013427734, -512.038330078125)
 end
 end
   end
