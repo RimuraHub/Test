@@ -200,19 +200,19 @@ local Dropdown = Tab2:AddDropdown({
     Default = playerNames[1] or "No Players",
     Options = playerNames,
     Callback = function(selectedplrName)
-        local targetPlayer = plrs:FindFirstChild(selectedplrName)
-        
-        if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
-            local targetPosition = targetPlayer.Character.HumanoidRootPart.Position
-            local localPlayerRoot = plrs.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
-            
-            if localPlayerRoot then
-                localPlayerRoot.CFrame = CFrame.new(targetPosition)
+    plrs = selectedplrName
+    end
+})
+
+Tab2:AddButton({"Click to teleport - คลิกเพื่อเทเลพอร์ต", function()
+         for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+            if v.Name == plrs then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, -2)
             end
         end
-        print(selectedplrName)
-    end    
+    end
 })
+
 
 local Section = Tab2:AddSection({"TeleportNPC - วาปไปหาNPC"})
 
@@ -228,15 +228,19 @@ local Dropdown = Tab2:AddDropdown({
     Options = NPCS,
     Default = nil,
     Flag = "dropdown teste",
-    Callback = function(selectedOption)
+    Callback = function(WoW)
+ NPCNA = WoW
+end
+})
+
+Tab2:AddButton({"Click to teleport - คลิกเพื่อเทเลพอร์ต", function()
         for i, v in pairs(game:GetService("Workspace").NPC:GetChildren()) do
-            if v.Name == selectedOption then
+            if v.Name == NPCNA then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, -2)
             end
         end
     end
 })
-
 
 local Section = Tab2:AddSection({"Teleport - วาป"})
 
@@ -310,6 +314,10 @@ end})
 
 Tab2:AddButton({"SeaKing_Island2", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1441.73583984375, 21.603845596313477, 1327.4365234375)
+end})
+
+Tab2:AddButton({"CID_Island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(189.59649658203125, 159.18881225585938, -1668.1658935546875)
 end})
 
 local Section= Tab3:AddSection({"color ui - เปลี่ยนสียูไอ"})
