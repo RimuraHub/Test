@@ -10,7 +10,8 @@ local Tab1 = Window:MakeTab({"Auto Farm - ออโต้ฟาม", "swords"})
 local Tab2 = Window:MakeTab({"Teleport - วาป", "swords"})
 local Tab3 = Window:MakeTab({"other - อื่นๆ", "swords"})
 local Tab4 = Window:MakeTab({"MAP - แมพ", "swords"})
-local Tab5 = Window:MakeTab({"credit - เครติด", "user"})
+local Tab5 = Window:MakeTab({"Farm Item - ฟามไอเทม", "swords"})
+local Tab6 = Window:MakeTab({"credit - เครติด", "user"})
 
 redzlib:SetTheme("Dark")
 
@@ -336,6 +337,20 @@ local Toggle3 = Tab3:AddToggle({
 })
 
 
+Tab4:AddButton({"aoto keep[Can't close] - ออโต้เก็บ[ปิดไม่ได้]", function(mua)
+_G.aa = mua
+while _G.aa do
+          wait()
+local args = {
+    [1] = "Item",
+    [2] = "Keep"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent.InventoryEvent:FireServer(unpack(args))
+end
+end})
+
+
 local Toggle1 = Tab4:AddToggle({
   Name = "Auto click toji Dagger",
   Description = "ออโต้คลิกกริชโทจิ",
@@ -385,7 +400,95 @@ end
   end
 })
 
-Tab5:AddDiscordInvite({
+local Toggle1 = Tab5:AddToggle({
+  Name = "Auto Skill[sand fruit]",
+  Description = "ออโต้สกิล[ผลทราย]",
+  Default = false,
+  Callback = function(hhv)
+  _G.gg = hhv
+while _G.gg do
+    wait(0.5)
+game:GetService("Players").LocalPlayer.Character.Sand.SkillZ.RemoteEvent:FireServer()
+end
+  end
+})
+
+local Toggle1 = Tab5:AddToggle({
+  Name = "blue orb[Can't close]",
+  Description = "ออฟฟ้า[ปิดไม่ได้]ิ",
+  Default = false,
+  Callback = function(h3hv)
+  _G.gg = h3hv
+while _G.gg do
+    wait(2)
+while wait(1) do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2113.53564453125, 91.59420013427734, -512.038330078125)
+end
+end
+  end
+})
+
+local Toggle1 = Tab5:AddToggle({
+  Name = "Red orb[Can't close]",
+  Description = "ออฟแดง[ปิดไม่ได้]",
+  Default = false,
+  Callback = function(hh1v)
+  _G.gg = hh1v
+while _G.gg do
+    wait(1)
+while wait(2) do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2288.029052734375, 91.59147644042969, -510.5782775878906)
+end
+end
+  end
+})
+
+local Toggle1 = Tab5:AddToggle({
+  Name = "iron[Can't close]",
+  Description = "เหล็ก[ปิดไม่ได้]",
+  Default = false,
+  Callback = function(hhv1)
+  _G.gg = hhv1
+while _G.gg do
+    wait(1)
+while wait(1) do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(426.9952087402344, 90.93980407714844, -1359.24560546875)
+end
+end
+  end
+})
+
+local Toggle1 = Tab5:AddToggle({
+  Name = "Dark orb[Can't close]",
+  Description = "ออฟดำ[ปิดไม่ได้]",
+  Default = false,
+  Callback = function(hhv2)
+  _G.gg = hhv2
+while _G.gg do
+    wait(1)
+while wait(2) do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(587.2100830078125, 121.95246887207031, -1515.112548828125)
+end
+end
+  end
+})
+
+local Toggle1 = Tab5:AddToggle({
+  Name = "sand orb and Bone[Can't close]",
+  Description = "ออฟทรายและกระดูก[ปิดไม่ได้]",
+  Default = false,
+  Callback = function(hhv3)
+  _G.gg = hhv3
+while _G.gg do
+    wait(1)
+while wait(3) do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(429.08349609375, 90.93980407714844, -1522.064208984375)
+end
+end
+  end
+})
+
+Tab6:AddDiscordInvite({
   Name = "redz Hub | Community",
   Logo = "rbxassetid://18678079705",
   Invite = "https://discord.com/invite/Dmg8EJ2neK"
