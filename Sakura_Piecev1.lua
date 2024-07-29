@@ -244,6 +244,10 @@ end})
 
 local Section= Tab3:AddSection({"script"})
 
+Tab3:AddButton({"fpsboot", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RimuraHub/Test/main/Fpsboot.lua", true))()
+end})
+
 Tab3:AddButton({"infiniteyield", function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source", true))()
 end})
