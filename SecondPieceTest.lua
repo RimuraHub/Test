@@ -43,7 +43,7 @@ Tab1:AddButton({
   Name = "RefreshWeaponList",
   Description = "รีเฟรชรายการอาวุธ",
   Callback = function()
-    Dropdown:Refresh(Weaponlist, true)
+    Dropdown:Refresh(Dropdown)
   end
 })
 
@@ -188,8 +188,33 @@ Tab2:AddButton({"Click to teleport - คลิกเพื่อเทเลพ�
 
 
 
-local Section = Tab2:AddSection({"Teleport[Soon] - วาป[เร็วๆ นี้]"})
+local Section = Tab2:AddSection({"Teleportisland - วาปเกาะ"})
 
+local island = {}
+
+for i, v in pairs(game:GetService("Workspace").Locations:GetChildren()) do
+    table.insert(island, v.Name)
+end
+
+local Dropdown = Tab2:AddDropdown({
+    Name = "Select island",
+    Description = "เลือกเกาะ",
+    Options = island,
+    Default = nil,
+    Flag = "dropdown teste",
+    Callback = function(WoW)
+ NPCNA = WoW
+end
+})
+
+Tab2:AddButton({"Click to teleport - คลิกเพื่อเทเลพอร์ต", function()
+        for i, v in pairs(game:GetService("Workspace").Locations:GetChildren()) do
+            if v.Name == NPCNA then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame * CFrame.new(0, 0, -2)
+            end
+        end
+    end
+})
 
 local Section= Tab3:AddSection({"color ui - เปลี่ยนสียูไอ"})
 
@@ -286,29 +311,6 @@ end
   end
 })
 
-
-local KillAllSection = Tab3:AddSection({"Kill AuraMon - ฆ่ามอนรอบตัว"})
-
-local Toggle3 = Tab3:AddToggle({
-  Name = "Kill AuraMon[Lag]",
-  Description = "ฆ่ามอนรอบตัว[แล็ค]",
-  Default = false,
-  Callback = function(KillAll)
-    getgenv().G = KillAll
-    spawn(function()
-      while getgenv().G do
-        wait(1)
-        sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", 112412400000)
-        sethiddenproperty(game.Players.LocalPlayer, "MaxSimulationRadius", 112412400000)
-        for _, d in pairs(game:GetService("Workspace"):GetDescendants()) do
-          if d.ClassName == 'Humanoid' and d.Parent.Name ~= game.Players.LocalPlayer.Name then
-            d.Health = 0
-          end
-        end
-      end
-    end)
-  end
-})
 
 Tab6:AddDiscordInvite({
   Name = "redz Hub | Community",
