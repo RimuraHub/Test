@@ -81,9 +81,31 @@ local Dropdown = Tab1:AddDropdown({
     end
 })
 
+local boss = {
+     "Gojo Boss",
+     "Ax Hand",
+     "Lord Dark",
+     "Yuta Boss",
+     "Chopper",
+     "Becky",
+     "Yeti",
+     "Marine Captain"
+}
+
+local Dropdown = Tab1:AddDropdown({
+    Name = "Select boss",
+    Description = "เลือกบอส",
+    Options = boss,
+    Default = nil,
+    Flag = "dropdown teste",
+    Callback = function(Value)
+        bossFarm = Value
+    end
+})
+
 local Toggle1 = Tab1:AddToggle({
-  Name = "Auto Farm",
-  Description = "ออโต้ฟาม",
+  Name = "Mon Farm",
+  Description = "มอนฟาม",
   Default = false,
   Callback = function(Hee)
   _G.a = Hee
@@ -113,7 +135,37 @@ spawn(function()
     end
 end)
 
+local Toggle1 = Tab1:AddToggle({
+  Name = "Boss Farm",
+  Description = "บอสฟาม",
+  Default = false,
+  Callback = function(Hee)
+  _G.a = Hee
+  end
+})
 
+function A()
+  game:GetService'VirtualUser':CaptureController()
+game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+end
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            if _G.a then
+                for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
+                    if v.Name == bossFarm and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health >= 1 then
+                        repeat
+                           A()
+                            wait()
+ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, 2)
+                        until _G.a == false or v.Humanoid.Health <= 0
+                    end
+                end
+            end
+        end)
+    end
+end)
 
 
 local Section = Tab2:AddSection({
@@ -148,36 +200,6 @@ Tab2:AddButton({"Click to teleport - คลิกเพื่อเทเลพ�
     end
 })
 
-local Section = Tab2:AddSection({"TeleportNPC - วาปไปหาNPC"})
-
-local NPCS = {}
-
-for i, v in pairs(game:GetService("Workspace").NPC:GetChildren()) do
-    table.insert(NPCS, v.Name)
-end
-
-local Dropdown = Tab2:AddDropdown({
-    Name = "Select NPC",
-    Description = "เลือกNPC",
-    Options = NPCS,
-    Default = nil,
-    Flag = "dropdown teste",
-    Callback = function(WoW)
- NPCNA = WoW
-end
-})
-
-Tab2:AddButton({"Click to teleport - คลิกเพื่อเทเลพอร์ต", function()
-        for i, v in pairs(game:GetService("Workspace").NPC:GetChildren()) do
-            if v.Name == NPCNA then
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, -2)
-            end
-        end
-    end
-})
-
-
-
 
 local Section = Tab2:AddSection({"Teleport - วาป"})
 
@@ -209,6 +231,112 @@ end})
 Tab2:AddButton({"Event_Island", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1276.4683837890625, 203.23435974121094, 1663.792724609375)
 end})
+
+local Section = Tab2:AddSection({"TeleportNPC - วาปไปหาNPC"})
+
+local NPCS = {}
+
+for i, v in pairs(game:GetService("Workspace").NPC.Seller.Accessory:GetChildren()) do
+    table.insert(NPCS, v.Name)
+end
+
+local Dropdown = Tab2:AddDropdown({
+    Name = "Accessory",
+    Description = "ของสวมใส่",
+    Options = NPCS,
+    Default = nil,
+    Flag = "dropdown teste",
+    Callback = function(WoW)
+ NPCNA = WoW
+end
+})
+
+Tab2:AddButton({"Click to teleport - คลิกเพื่อเทเลพอร์ต", function()
+        for i, v in pairs(game:GetService("Workspace").NPC.Seller.Accessory:GetChildren()) do
+            if v.Name == NPCNA then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, -2)
+            end
+        end
+    end
+})
+
+local NPCS = {}
+
+for i, v in pairs(game:GetService("Workspace").NPC.Seller.Sword:GetChildren()) do
+    table.insert(NPCS, v.Name)
+end
+
+local Dropdown = Tab2:AddDropdown({
+    Name = "Sword",
+    Description = "ดาบ",
+    Options = NPCS,
+    Default = nil,
+    Flag = "dropdown teste",
+    Callback = function(WoW)
+ NPCNA = WoW
+end
+})
+
+Tab2:AddButton({"Click to teleport - คลิกเพื่อเทเลพอร์ต", function()
+        for i, v in pairs(game:GetService("Workspace").NPC.Seller.Sword:GetChildren()) do
+            if v.Name == NPCNA then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, -2)
+            end
+        end
+    end
+})
+
+local NPCS = {}
+
+for i, v in pairs(game:GetService("Workspace").NPC.Seller.Melee:GetChildren()) do
+    table.insert(NPCS, v.Name)
+end
+
+local Dropdown = Tab2:AddDropdown({
+    Name = "Melee",
+    Description = "หมัด",
+    Options = NPCS,
+    Default = nil,
+    Flag = "dropdown teste",
+    Callback = function(WoW)
+ NPCNA = WoW
+end
+})
+
+Tab2:AddButton({"Click to teleport - คลิกเพื่อเทเลพอร์ต", function()
+        for i, v in pairs(game:GetService("Workspace").NPC.Seller.Melee:GetChildren()) do
+            if v.Name == NPCNA then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, -2)
+            end
+        end
+    end
+})
+
+local NPCS = {}
+
+for i, v in pairs(game:GetService("Workspace").NPC.Seller.Crafting:GetChildren()) do
+    table.insert(NPCS, v.Name)
+end
+
+local Dropdown = Tab2:AddDropdown({
+    Name = "Crafting",
+    Description = "คราฟของ",
+    Options = NPCS,
+    Default = nil,
+    Flag = "dropdown teste",
+    Callback = function(WoW)
+ NPCNA = WoW
+end
+})
+
+Tab2:AddButton({"Click to teleport - คลิกเพื่อเทเลพอร์ต", function()
+        for i, v in pairs(game:GetService("Workspace").NPC.Seller.Crafting:GetChildren()) do
+            if v.Name == NPCNA then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, -2)
+            end
+        end
+    end
+})
 
 local Section= Tab3:AddSection({"color ui - เปลี่ยนสียูไอ"})
 
@@ -528,7 +656,6 @@ Tab6:AddDiscordInvite({
   Logo = "rbxassetid://18678079705",
   Invite = "https://discord.com/invite/Dmg8EJ2neK"
 })
-
 
 
 
