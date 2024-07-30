@@ -7,18 +7,18 @@ local Window = redzlib:MakeWindow({
 })
 
 local Tab1 = Window:MakeTab({"Auto Farm - ออโต้ฟาม", "Home"})
-local Tab2 = Window:MakeTab({"Teleport - วาป", "user"})
-local Tab3 = Window:MakeTab({"other - อื่นๆ", "cherry"})
-local Tab4 = Window:MakeTab({"SpamSkills - สแปมสกิล", "swords"})
-local Tab5 = Window:MakeTab({"SpamSkillsV2 - สแปมสกิลวี2", "swords"})
-local Tab6 = Window:MakeTab({"summonweapon - เสกอาวุธ", "swords"})
-local Tab7 = Window:MakeTab({"credit - เครติด", "user"})
+local Tab2 = Window:MakeTab({"Teleport", "Locate"})
+local Tab3 = Window:MakeTab({"Misc", "cherry"})
+local Tab4 = Window:MakeTab({"SpamSkills", "swords"})
+local Tab5 = Window:MakeTab({"SpamSkillsV2", "swords"})
+local Tab6 = Window:MakeTab({"summonweapon", "swords"})
+local Tab7 = Window:MakeTab({"Discord", "Info"})
 
 
 redzlib:SetTheme("Purple")
 
 
-local Section = Tab1:AddSection({"Select Weapon - เลือกอาวุธ"})
+local Section = Tab1:AddSection({"Select Weapon"})
 
 local Weaponlist = {}
 local Weapon = nil
@@ -34,7 +34,7 @@ refreshWeaponList()
 
 local Dropdown = Tab1:AddDropdown({
   Name = "Select Weapon",
-  Description = "เลือกอาวุธ",
+  Description = "",
   Options = Weaponlist,
   Default = nil,
   Flag = "dropdown teste",
@@ -45,7 +45,7 @@ local Dropdown = Tab1:AddDropdown({
 
 local Toggle1 = Tab1:AddToggle({
   Name = "Auto Equip",
-  Description = "ออโต้ถือ",
+  Description = "",
   Default = false,
   Callback = function(GG)
     AutoEquiped = GG
@@ -67,7 +67,7 @@ local Section= Tab1:AddSection({"Fast Attack[equipweapon]- ตีเร็ว[�
 
 local Toggle1 = Tab1:AddToggle({
   Name = "DarkYoru",
-  Description = "โยรูดำ",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -84,7 +84,7 @@ game:GetService("Players").LocalPlayer.Character.DarkYoru.Combo.C1:FireServer(un
 
 local Toggle1 = Tab1:AddToggle({
   Name = "King_Sword",
-  Description = "ดาบค่าหัว",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -106,8 +106,7 @@ local Section = Tab1:AddSection({"Auto FarmMon - ออโต้ฟามมอ�
 
 
 local Mob = {
-	"-------------",
-    "Baboon (Lv.200)",
+	"Baboon (Lv.200)",
     "FakeAngle (Lv.500)",
     "Bandit (Lv.1)",
     "Marine (Lv.100)",
@@ -137,7 +136,7 @@ end
 
 local Dropdown = Tab1:AddDropdown({
     Name = "Select Mob",
-    Description = "เลือกมอน",
+    Description = "",
     Options = Mob,
     Default = nil,
     Flag = "dropdown teste",
@@ -148,7 +147,7 @@ local Dropdown = Tab1:AddDropdown({
 
 local Toggle1 = Tab1:AddToggle({
   Name = "Auto Farm",
-  Description = "ออโต้ฟาม",
+  Description = "",
   Default = false,
   Callback = function(Hee)
   _G.a = Hee
@@ -182,7 +181,7 @@ end)
 
 
 local Section = Tab2:AddSection({
-	Name = "TeleportPlayer- วาปไปหาผู้เล่น:"
+	Name = "TeleportPlayer"
 })
 
 local plrs = game.Players
@@ -204,7 +203,7 @@ local Dropdown = Tab2:AddDropdown({
     end
 })
 
-Tab2:AddButton({"Click to teleport - คลิกเพื่อเทเลพอร์ต", function()
+Tab2:AddButton({"Click to teleport", function()
          for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
             if v.Name == plrs then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, -2)
@@ -214,7 +213,7 @@ Tab2:AddButton({"Click to teleport - คลิกเพื่อเทเลพ�
 })
 
 
-local Section = Tab2:AddSection({"TeleportNPC - วาปไปหาNPC"})
+local Section = Tab2:AddSection({"TeleportNPC"})
 
 local NPCS = {}
 
@@ -224,7 +223,7 @@ end
 
 local Dropdown = Tab2:AddDropdown({
     Name = "Select NPC",
-    Description = "เลือกNPC",
+    Description = "",
     Options = NPCS,
     Default = nil,
     Flag = "dropdown teste",
@@ -233,7 +232,7 @@ local Dropdown = Tab2:AddDropdown({
 end
 })
 
-Tab2:AddButton({"Click to teleport - คลิกเพื่อเทเลพอร์ต", function()
+Tab2:AddButton({"Click to teleport", function()
         for i, v in pairs(game:GetService("Workspace").NPC:GetChildren()) do
             if v.Name == NPCNA then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, -2)
@@ -242,7 +241,7 @@ Tab2:AddButton({"Click to teleport - คลิกเพื่อเทเลพ�
     end
 })
 
-local Section = Tab2:AddSection({"Teleport - วาป"})
+local Section = Tab2:AddSection({"Teleport"})
 
 Tab2:AddButton({"Alone_Island", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-448.27337646484375, 66.60079193115234, 82.97445678710938)
@@ -320,7 +319,7 @@ Tab2:AddButton({"CID_Island", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(189.59649658203125, 159.18881225585938, -1668.1658935546875)
 end})
 
-local Section= Tab3:AddSection({"color ui - เปลี่ยนสียูไอ"})
+local Section= Tab3:AddSection({"color ui"})
 
 Tab3:AddButton({"Dark Theme", function()
   redzlib:SetTheme("Dark")
@@ -372,7 +371,7 @@ end})
 
 local Toggle1 = Tab3:AddToggle({
   Name = "BringHeadPlayer",
-  Description = "ออโต้ถือ",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -416,11 +415,11 @@ end
 })
 
 
-local KillAllSection = Tab3:AddSection({"Kill AuraMon - ฆ่ามอนรอบตัว"})
+local KillAllSection = Tab3:AddSection({"Kill AuraMon"})
 
 local Toggle3 = Tab3:AddToggle({
   Name = "Kill AuraMon[Lag]",
-  Description = "ฆ่ามอนรอบตัว[แล็ค]",
+  Description = "",
   Default = false,
   Callback = function(KillAll)
     getgenv().G = KillAll
@@ -439,11 +438,11 @@ local Toggle3 = Tab3:AddToggle({
   end
 })
 
-local Section= Tab4:AddSection({"Skill Z - สกิล Z"})
+local Section= Tab4:AddSection({"Skill Z"})
 
 local Toggle1 = Tab4:AddToggle({
   Name = "DarkYoru",
-  Description = "โยรูดำ",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -456,7 +455,7 @@ local Toggle1 = Tab4:AddToggle({
 
 local Toggle1 = Tab4:AddToggle({
   Name = "King_Sword",
-  Description = "ดาบค่าหัว",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -469,7 +468,7 @@ local Toggle1 = Tab4:AddToggle({
 
 local Toggle1 = Tab4:AddToggle({
   Name = "Reaper_Scythe",
-  Description = "เคียว",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -482,7 +481,7 @@ local Toggle1 = Tab4:AddToggle({
 
 local Toggle1 = Tab4:AddToggle({
   Name = "Guitar",
-  Description = "กีต้าร์",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -493,11 +492,11 @@ local Toggle1 = Tab4:AddToggle({
   end
 })
 
-local Section= Tab4:AddSection({"Skill X - สกิล X"})
+local Section= Tab4:AddSection({"Skill X"})
 
 local Toggle1 = Tab4:AddToggle({
   Name = "King_Sword",
-  Description = "ดาบค่าหัว",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -510,7 +509,7 @@ local Toggle1 = Tab4:AddToggle({
 
 local Toggle1 = Tab4:AddToggle({
   Name = "Reaper_Scythe",
-  Description = "เคียว",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -523,7 +522,7 @@ local Toggle1 = Tab4:AddToggle({
 
 local Toggle1 = Tab4:AddToggle({
   Name = "DoughTrident",
-  Description = "หอกคาตาคุริ",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -534,11 +533,11 @@ local Toggle1 = Tab4:AddToggle({
   end
 })
 
-local Section= Tab4:AddSection({"Skill C - สกิล C"})
+local Section= Tab4:AddSection({"Skill C"})
 
 local Toggle1 = Tab4:AddToggle({
   Name = "Reaper_Scythe",
-  Description = "เคียว",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -551,7 +550,7 @@ local Toggle1 = Tab4:AddToggle({
 
 local Toggle1 = Tab4:AddToggle({
   Name = "Ice fruit",
-  Description = "ผลน้ำแข็ง",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -566,7 +565,7 @@ local Section= Tab5:AddSection({"Skill Z - สกิล Z"})
 
 local Toggle1 = Tab5:AddToggle({
   Name = "DarkYoru",
-  Description = "โยรูดำ",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -579,7 +578,7 @@ local Toggle1 = Tab5:AddToggle({
 
 local Toggle1 = Tab5:AddToggle({
   Name = "King_Sword",
-  Description = "ดาบค่าหัว",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -592,7 +591,7 @@ local Toggle1 = Tab5:AddToggle({
 
 local Toggle1 = Tab5:AddToggle({
   Name = "Reaper_Scythe",
-  Description = "เคียว",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -605,7 +604,7 @@ local Toggle1 = Tab5:AddToggle({
 
 local Toggle1 = Tab5:AddToggle({
   Name = "Guitar",
-  Description = "กีต้าร์",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -616,11 +615,11 @@ local Toggle1 = Tab5:AddToggle({
   end
 })
 
-local Section= Tab5:AddSection({"Skill X - สกิล X"})
+local Section= Tab5:AddSection({"Skill X"})
 
 local Toggle1 = Tab5:AddToggle({
   Name = "King_Sword",
-  Description = "ดาบค่าหัว",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -633,7 +632,7 @@ local Toggle1 = Tab5:AddToggle({
 
 local Toggle1 = Tab5:AddToggle({
   Name = "Reaper_Scythe",
-  Description = "เคียว",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -646,7 +645,7 @@ local Toggle1 = Tab5:AddToggle({
 
 local Toggle1 = Tab5:AddToggle({
   Name = "DoughTrident",
-  Description = "หอกคาตาคุริ",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -661,7 +660,7 @@ local Section= Tab5:AddSection({"Skill C - สกิล C"})
 
 local Toggle1 = Tab5:AddToggle({
   Name = "Reaper_Scythe",
-  Description = "เคียว",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -674,7 +673,7 @@ local Toggle1 = Tab5:AddToggle({
 
 local Toggle1 = Tab5:AddToggle({
   Name = "Ice fruit",
-  Description = "ผลน้ำแข็ง",
+  Description = "",
   Default = false,
   Callback = function(me)
          _G.Auto = me
@@ -685,9 +684,9 @@ local Toggle1 = Tab5:AddToggle({
   end
 })
 
-local Section= Tab6:AddSection({"auto-update - ออโต้อัพเดท"})
+local Section= Tab6:AddSection({"auto-update"})
 
-local Section= Tab6:AddSection({"Summon sword - เสกดาบ"})
+local Section= Tab6:AddSection({"Summon sword"})
 
 local Weaponlist = {}
 
@@ -697,7 +696,7 @@ end
 
 local Dropdown = Tab6:AddDropdown({
     Name = "Select Weapon",
-    Description = "เลือกอาวุธ",
+    Description = "",
     Options = Weaponlist,
     Default = nil,
     Flag = "dropdown teste",
@@ -710,7 +709,7 @@ local Dropdown = Tab6:AddDropdown({
     end
 })
 
-local Section= Tab6:AddSection({"Summon Melee - เสกหมัด"})
+local Section= Tab6:AddSection({"Summon Melee"})
 
 local WeaponlistMelee = {}
 
@@ -720,7 +719,7 @@ end
 
 Tab6:AddDropdown({
     Name = "Select Melee Weapon",
-    Description = "เลือกหมัด",
+    Description = "",
     Options = WeaponlistMelee,
     Default = nil,
     Flag = "dropdown melee",
