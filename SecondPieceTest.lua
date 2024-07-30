@@ -313,7 +313,7 @@ end
 
 
 Tab6:AddDiscordInvite({
-  Name = "redz Hub | Community",
+  Name = "Rimura Hub | Community",
   Logo = "rbxassetid://18678079705",
   Invite = "https://discord.com/invite/Dmg8EJ2neK"
 })
