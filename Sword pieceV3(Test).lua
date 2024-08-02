@@ -6,6 +6,11 @@ local Window = redzlib:MakeWindow({
   SaveFolder = ""
 })
 
+Window:AddMinimizeButton({
+  Button = { Image = "rbxassetid://18751483361", BackgroundTransparency = 0 },
+  Corner = { CornerRadius = UDim.new(0, 6) }
+})
+
 local Tab1 = Window:MakeTab({"Auto Farm - ออโต้ฟาม", "Home"})
 local Tab2 = Window:MakeTab({"Teleport", "Locate"})
 local Tab3 = Window:MakeTab({"Misc", "cherry"})
