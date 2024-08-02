@@ -404,7 +404,7 @@ end
 local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Source.Lua"))()
 local Window = redzlib:MakeWindow({ Title = "Rimura Hub : Meme Sea", SubTitle = "by Rimura4743", SaveFolder = "RinuraHub-MemeSea.json" })
 Window:AddMinimizeButton({
-  Button = { Image = "rbxassetid://18678079705", BackgroundTransparency = 0 },
+  Button = { Image = "rbxassetid://18751483361", BackgroundTransparency = 0 },
   Corner = { CornerRadius = UDim.new(0, 6) }
 })
 
@@ -432,7 +432,7 @@ local _Discord = Tabs.Discord do
   _Discord:AddDiscordInvite({
     Name = "Rimura Hub | Community",
     Description = "Hi",
-    Logo = "rbxassetid://18678079705",
+    Logo = "rbxassetid://18751483361",
     Invite = "https://discord.gg/Dmg8EJ2neK"
   })
 end
