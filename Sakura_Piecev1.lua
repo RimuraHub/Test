@@ -237,6 +237,10 @@ Tab2:AddButton({"Event_Island", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1276.4683837890625, 203.23435974121094, 1663.792724609375)
 end})
 
+Tab2:AddButton({"Sea_beast_Island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3709.289306640625, 191.15379333496094, 136.58079528808594)
+end})
+			
 local Section = Tab2:AddSection({"TeleportNPC"})
 
 local NPCS = {}
