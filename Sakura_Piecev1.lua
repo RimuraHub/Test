@@ -485,50 +485,10 @@ end
   end
 })
 
-local Section = Tab4:AddSection({"Skill"})
-
-Tab4:AddButton({"Skill No cooldown", function()
-v = hookfunction(wait, function(seconds)
-return v()
-end)
-end})
-
-local Section = Tab4:AddSection({"Auto Spam"})
-
-local Section = Tab4:AddSection({"Z"})
-
-local Toggle1 = Tab4:AddToggle({
-  Name = "sand fruit",
-  Description = "",
-  Default = false,
-  Callback = function(hhv)
-  _G.gg = hhv
-while _G.gg do
-    wait(0.5)
-game:GetService("Players").LocalPlayer.Character.Sand.SkillZ.RemoteEvent:FireServer()
-end
-  end
-})
-
-local Section = Tab4:AddSection({"X"})
-
-local Section = Tab4:AddSection({"C"})
-
-local Toggle1 = Tab4:AddToggle({
-  Name = "Cursed Sword[Bug]",
-  Description = "",
-  Default = false,
-  Callback = function(hhv)
-  _G.gg = hhv
-while _G.gg do
-    wait(0.5)
-game:GetService("Players").LocalPlayer.Character.CursedSword.SkillC.RemoteEvent:FireServer()
-end
-  end
-})
+local Section = Tab4:AddSection({"Skill[Soon]"})
 
 local Toggle1 = Tab5:AddToggle({
-  Name = "Auto Skill",
+  Name = "Auto Skill[Sand][Z]",
   Description = "",
   Default = false,
   Callback = function(hhv)
@@ -617,7 +577,7 @@ end
 
 Tab6:AddDiscordInvite({
   Name = "Rimura Hub | Community",
-  Logo = "rbxassetid://18678079705",
+  Logo = "rbxassetid://18751483361",
   Invite = "https://discord.com/invite/Dmg8EJ2neK"
 })
 
