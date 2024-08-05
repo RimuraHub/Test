@@ -1,11 +1,3 @@
---[[
-  Dev: redz9999
-  Lib: redzLibV5
-  github: REDzHUB
-  
-  Game: Roblox-MemeSea
-]]
-
 local _wait = task.wait
 repeat _wait() until game:IsLoaded()
 local _env = getgenv and getgenv() or {}
@@ -556,18 +548,38 @@ local Dropdown = Tabs.Player:AddDropdown({
     Default = playerNames[1] or "No Players",
     Options = playerNames,
     Callback = function(selectedplrName)
-    plrs = selectedplrName
+        selectedPlayerName = selectedplrName -- เปลี่ยนชื่อเป็น selectedPlayerName เพื่อความชัดเจน
     end
 })
 
-Tabs.Player:AddButton({"Click to teleport", function()
-         for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
-            if v.Name == plrs then
+Tabs.Player:AddButton({
+    Name = "Click to teleport", 
+    Callback = function()
+        for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
+            if v.Name == selectedPlayerName and v:FindFirstChild("HumanoidRootPart") then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, -2)
             end
         end
     end
 })
+
+local _Player = Tabs.Player:AddToggle({
+    Name = "Auto TP",
+    Description = "",
+    Default = false,
+    Callback = function(t)
+        _G.TPPlayer = t
+        
+        while _G.TPPlayer do 
+            wait() 
+            local targetPlayer = game.Players:FindFirstChild(selectedPlayerName)
+            if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -2)
+            end
+        end
+    end
+})
+
 
 local _Shop = Tabs.Shop do
   for _,s in next, Loaded.Shop do
