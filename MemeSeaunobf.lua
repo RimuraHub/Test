@@ -413,6 +413,7 @@ local Tabs = {
   Items = Window:MakeTab({"Items", "Swords"}),
   Stats = Window:MakeTab({"Stats", "Signal"}),
   Teleport = Window:MakeTab({"Teleport", "Locate"}),
+  Player = Window:MakeTab({"Player", "User"}),
   Shop = Window:MakeTab({"Shop", "ShoppingCart"}),
   Misc = Window:MakeTab({"Misc", "Settings"}),
   Discord = Window:MakeTab({"Discord", "Info"})
@@ -539,6 +540,34 @@ local _Teleport = Tabs.Teleport do
     GoTo(Location.QuestLocaion[Value].CFrame)
   end})
 end
+
+local plrs = game.Players
+
+-- Fetch all player names
+local playerNames = {}
+local players = plrs:GetPlayers()
+
+for _, player in ipairs(players) do
+    table.insert(playerNames, player.Name)
+end
+
+local Dropdown = Tabs.Player:AddDropdown({
+    Name = "Players",
+    Default = playerNames[1] or "No Players",
+    Options = playerNames,
+    Callback = function(selectedplrName)
+    plrs = selectedplrName
+    end
+})
+
+Tabs.Player:AddButton({"Click to teleport", function()
+         for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
+            if v.Name == plrs then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, -2)
+            end
+        end
+    end
+})
 
 local _Shop = Tabs.Shop do
   for _,s in next, Loaded.Shop do
