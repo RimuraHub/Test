@@ -443,6 +443,10 @@ local Toggle3 = Tab3:AddToggle({
   end
 })
 
+Tab2:AddButton({"NoCoolDown", function()
+
+end})
+
 local Section= Tab4:AddSection({"Skill Z"})
 
 local Toggle1 = Tab4:AddToggle({
