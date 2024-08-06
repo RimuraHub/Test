@@ -11,7 +11,7 @@ Window:AddMinimizeButton({
   Corner = { CornerRadius = UDim.new(0, 6) }
 })
 
-local Tab1 = Window:MakeTab({"Auto Farm - ออโต้ฟาม", "Home"})
+local Tab1 = Window:MakeTab({"Auto Farm", "Home"})
 local Tab2 = Window:MakeTab({"Teleport", "Locate"})
 local Tab3 = Window:MakeTab({"Misc", "cherry"})
 local Tab4 = Window:MakeTab({"SpamSkills", "swords"})
@@ -68,7 +68,7 @@ spawn(function()
   end
 end)
 
-local Section= Tab1:AddSection({"Fast Attack[equipweapon]- ตีเร็ว[ถืออาวุธ]"})
+local Section= Tab1:AddSection({"Fast Attack[equipweapon]"})
 
 local Toggle1 = Tab1:AddToggle({
   Name = "DarkYoru",
@@ -106,7 +106,7 @@ game:GetService("Players").LocalPlayer.Character.King_Sword.Combo.C1:FireServer(
 
 
 
-local Section = Tab1:AddSection({"Auto FarmMon - ออโต้ฟามมอน"})
+local Section = Tab1:AddSection({"Auto FarmMon"})
 
 
 
@@ -132,7 +132,15 @@ local Mob = {
     "[Boss] Red Hair (Lv.500)",
     "[Boss] Yama (Lv.1500)",
     "Metal_Boss(Lv.4000)",
-    "[Boss] Arlong (Lv.1000)"
+    "[Boss] Arlong (Lv.1000)",
+    " TreeMan (Lv.3000)",
+    "Oden(Lv.2500)",
+    "Red_Boss(Lv.4000)",
+    "SeaKing",
+    "Katakuri_Boss(Lv.4500)",
+    "Gojo",
+    "CID_Boss",
+    "Light_Boss(Lv.2500)"
 }
 
 for i, v in pairs(game:GetService("Workspace").Mob:GetDescendants()) do
@@ -276,8 +284,6 @@ Tab2:AddButton({"Arlong_Island", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-791.1946411132812, 28.551923751831055, 476.9998474121094)
 end})
 
-local Section = Tab2:AddSection({"Teleport 2 - วาป2"})
-
 Tab2:AddButton({"Marineford_Island", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(716.3748168945312, 12.088098526000977, -1025.708251953125)
 end})
@@ -292,6 +298,10 @@ end})
 
 Tab2:AddButton({"Snow_Island", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-752.9354858398438, 22.753276824951172, 1485.57421875)
+end})
+
+Tab2:AddButton({"BigTree_Island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1579.7244873046875, 20.62343406677246, -101.03346252441406)
 end})
 
 local Section = Tab2:AddSection({"TeleportBossIsland - วาปเกาะบอส"})
@@ -572,7 +582,7 @@ local Toggle1 = Tab4:AddToggle({
   end
 })
 
-local Section= Tab5:AddSection({"Skill Z - สกิล Z"})
+local Section= Tab5:AddSection({"Skill Z"})
 
 local Toggle1 = Tab5:AddToggle({
   Name = "DarkYoru",
@@ -667,7 +677,7 @@ local Toggle1 = Tab5:AddToggle({
   end
 })
 
-local Section= Tab5:AddSection({"Skill C - สกิล C"})
+local Section= Tab5:AddSection({"Skill C"})
 
 local Toggle1 = Tab5:AddToggle({
   Name = "Reaper_Scythe",
@@ -697,29 +707,6 @@ local Toggle1 = Tab5:AddToggle({
 
 local Section= Tab6:AddSection({"auto-update"})
 
-local Section= Tab6:AddSection({"Summon sword"})
-
-local Weaponlist = {}
-
-for i, v in pairs(game.Players.LocalPlayer.InventoryList:GetChildren()) do
-    table.insert(Weaponlist, v.Name)
-end
-
-local Dropdown = Tab6:AddDropdown({
-    Name = "Select Weapon",
-    Description = "",
-    Options = Weaponlist,
-    Default = nil,
-    Flag = "dropdown teste",
-    Callback = function(selectedOption)
-        local args = {
-            [1] = selectedOption
-        }
-
-        game.ReplicatedStorage.Remotes.Inventory:FireServer(unpack(args))
-    end
-})
-
 local Section= Tab6:AddSection({"Summon Melee"})
 
 local WeaponlistMelee = {}
@@ -743,6 +730,29 @@ Tab6:AddDropdown({
     end
 })
 
+local Section= Tab6:AddSection({"Summon sword"})
+
+local Weaponlist = {}
+
+for i, v in pairs(game.Players.LocalPlayer.InventoryList:GetChildren()) do
+    table.insert(Weaponlist, v.Name)
+end
+
+local Dropdown = Tab6:AddDropdown({
+    Name = "Select Weapon",
+    Description = "",
+    Options = Weaponlist,
+    Default = nil,
+    Flag = "dropdown teste",
+    Callback = function(selectedOption)
+        local args = {
+            [1] = selectedOption
+        }
+
+        game.ReplicatedStorage.Remotes.Inventory:FireServer(unpack(args))
+    end
+})
+
 Tab6:AddButton({"DarkYoru", function()
 game:GetService("ReplicatedStorage").Remotes.Inventory:FireServer("DarkYoru")
 end})
@@ -756,7 +766,6 @@ Tab7:AddDiscordInvite({
   Logo = "rbxassetid://18678079705",
   Invite = "https://discord.com/invite/Dmg8EJ2neK"
 })
-
 
 
 
