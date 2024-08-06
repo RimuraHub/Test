@@ -443,8 +443,10 @@ local Toggle3 = Tab3:AddToggle({
   end
 })
 
-Tab2:AddButton({"NoCoolDown", function()
-
+Tab4:AddButton({"NoCoolDown", function()
+z = hookfunction(wait, function(seconds)
+return z()
+end)
 end})
 
 local Section= Tab4:AddSection({"Skill Z"})
