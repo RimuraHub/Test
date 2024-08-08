@@ -16,7 +16,7 @@ local Tab2 = Window:MakeTab({"Teleport", "Locate"})
 local Tab3 = Window:MakeTab({"Misc", "cherry"})
 local Tab4 = Window:MakeTab({"SpamSkills", "swords"})
 local Tab5 = Window:MakeTab({"SpamSkillsV2", "swords"})
-local Tab6 = Window:MakeTab({"summonweapon", "swords"})
+local Tab6 = Window:MakeTab({"MAP", "Home"})
 local Tab7 = Window:MakeTab({"Discord", "Info"})
 
 
@@ -249,6 +249,15 @@ Tab2:AddButton({"Click to teleport", function()
         for i, v in pairs(game:GetService("Workspace").NPC:GetChildren()) do
             if v.Name == NPCNA then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, -2)
+            end
+        end
+    end
+})
+
+Tab2:AddButton({"Click to teleport[BugFix]", function()
+        for i, v in pairs(game:GetService("Workspace").NPC:GetChildren()) do
+            if v.Name == NPCNA then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame * CFrame.new(0, 0, -2)
             end
         end
     end
@@ -705,9 +714,23 @@ local Toggle1 = Tab5:AddToggle({
   end
 })
 
-local Section= Tab6:AddSection({"auto-update"})
 
-local Section= Tab6:AddSection({"Summon Melee"})
+
+Tab6:AddButton({"HideName", function()
+game:GetService("Players").LocalPlayer.PlayerGui.statsscreen.Enabled = false
+game:GetService("Players").LocalPlayer.PlayerGui.ValueGui.TextLabel.Visible = false
+game:GetService("Players").LocalPlayer.PlayerGui.StatsGui.MenuFrame.NTextLabel.Visible = false
+game:GetService("Players").LocalPlayer.PlayerGui.StatsGui.BigFrame.NTextLabel.Visible = false
+ game.Players.LocalPlayer.Character.Head.NameTag.UpperText.Visible = false
+end})
+
+local Section= Tab6:AddSection({"Summon"})
+
+Tab6:AddButton({"Get All[Inventory]", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RimuraHub/Test/main/GetAll.lua"))()
+end})
+
+local Section= Tab6:AddSection({"Melee"})
 
 local WeaponlistMelee = {}
 
@@ -730,7 +753,8 @@ Tab6:AddDropdown({
     end
 })
 
-local Section= Tab6:AddSection({"Summon sword"})
+local Section= Tab6:AddSection({"Sword"})
+
 
 local Weaponlist = {}
 
@@ -766,7 +790,6 @@ Tab7:AddDiscordInvite({
   Logo = "rbxassetid://18678079705",
   Invite = "https://discord.com/invite/Dmg8EJ2neK"
 })
-
 
 
 
