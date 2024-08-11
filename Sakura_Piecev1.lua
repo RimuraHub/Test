@@ -19,6 +19,9 @@ local Tab5 = Window:MakeTab({"Farm Item", "swords"})
 local Tab6 = Window:MakeTab({"Discord", "Info"})
 
 
+
+
+
 local Section = Tab1:AddSection({"Select Weapon"})
 
 local Weaponlist = {}
