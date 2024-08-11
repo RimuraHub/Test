@@ -1,7 +1,4 @@
-Hub | Community",
-  Logo = "rbxassetid://18678079705",
-  Invite = "https://discord.com/invite/Dmg8EJ2neK"
-})redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Source.Lua"))()
+redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Source.Lua"))()
 
 local Window = redzlib:MakeWindow({
   Title = "Rimura Hub : XDAX Piece",
@@ -19,6 +16,7 @@ local Tab2 = Window:MakeTab({"Teleport - วาป", "swords"})
 local Tab3 = Window:MakeTab({"other - อื่นๆ", "swords"})
 local Tab4 = Window:MakeTab({"map - แมพ", "swords"})
 local Tab6 = Window:MakeTab({"credit - เครติด", "user"})
+
 
 
 
@@ -354,7 +352,7 @@ end})
 
 
 Tab6:AddDiscordInvite({
-  Name = "redz Hub | Community",
+  Name = "Rimura Hub | Community",
   Logo = "rbxassetid://18678079705",
   Invite = "https://discord.com/invite/Dmg8EJ2neK"
 })
