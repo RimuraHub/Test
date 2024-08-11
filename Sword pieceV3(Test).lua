@@ -20,9 +20,6 @@ local Tab6 = Window:MakeTab({"MAP", "Home"})
 local Tab7 = Window:MakeTab({"Discord", "Info"})
 
 
-redzlib:SetTheme("Purple")
-
-
 local Section = Tab1:AddSection({"Select Weapon"})
 
 local Weaponlist = {}
