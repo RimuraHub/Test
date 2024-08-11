@@ -3,7 +3,7 @@ redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/Red
 local Window = redzlib:MakeWindow({
   Title = "Rimura Hub : Sword Piece",
   SubTitle = "by Rimura4643",
-  SaveFolder = ""
+  SaveFolder = "SWORDPIECE"
 })
 
 Window:AddMinimizeButton({
