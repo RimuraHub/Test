@@ -18,8 +18,6 @@ local Tab4 = Window:MakeTab({"MAP", "swords"})
 local Tab5 = Window:MakeTab({"Farm Item", "swords"})
 local Tab6 = Window:MakeTab({"Discord", "Info"})
 
-redzlib:SetTheme("Dark")
-
 
 local Section = Tab1:AddSection({"Select Weapon"})
 
