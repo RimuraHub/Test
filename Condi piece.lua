@@ -1,7 +1,7 @@
 redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Source.Lua"))()
 
 local Window = redzlib:MakeWindow({
-  Title = "Rimura Hub : Condi Piece",
+  Title = "Rimura Hub : CONDL Piece",
   SubTitle = "",
   SaveFolder = ""
 })
@@ -68,7 +68,7 @@ end)
 
 
 
-local Section = Tab1:AddSection({"Auto FarmMon - ออโต้ฟามมอน"})
+local Section = Tab1:AddSection({"Auto Farm - ออโต้ฟาม"})
 
 
 
@@ -91,7 +91,7 @@ local Dropdown = Tab1:AddDropdown({
 
 local boss = {}
 
-for i, v in pairs(game:GetService("Workspace").Monster.boss:GetChildren()) do
+for i, v in pairs(game:GetService("Workspace").Monster.Boss:GetChildren()) do
     table.insert(boss,v.Name)
 end
 
@@ -107,8 +107,8 @@ local Dropdown = Tab1:AddDropdown({
 })
 
 local Toggle1 = Tab1:AddToggle({
-  Name = "Auto Farm",
-  Description = "ออโต้ฟาม",
+  Name = "Auto Farm mon",
+  Description = "ออโต้ฟามมอน",
   Default = false,
   Callback = function(Hee)
   _G.a = Hee
@@ -140,8 +140,8 @@ end)
 
 
 local Toggle1 = Tab1:AddToggle({
-  Name = "Auto Farm",
-  Description = "ออโต้ฟาม",
+  Name = "Auto Farm Boss",
+  Description = "ออโต้ฟามบอส",
   Default = false,
   Callback = function(Hee)
   _G.b = Hee
@@ -157,7 +157,7 @@ spawn(function()
     while wait() do
         pcall(function()
             if _G.b then
-                for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
+                for i, v in pairs(game:GetService("Workspace").Monster.Boss:GetDescendants()) do
                     if v.Name == bossFarm and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health >= 1 then
                         repeat
                            A()
