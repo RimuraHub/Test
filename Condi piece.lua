@@ -238,7 +238,14 @@ Tab2:AddButton({"Click to teleport - คลิกเพื่อเทเลพ�
     end
 })
 
-
+Tab2:AddButton({"Click to teleport[BugFix]", function()
+        for i, v in pairs(game:GetService("Workspace").Shop:GetChildren()) do
+            if v.Name == NPCNA then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame * CFrame.new(0, 2, 0)
+            end
+        end
+    end
+})
 
 
 local Section = Tab2:AddSection({"Teleport - วาป"})
