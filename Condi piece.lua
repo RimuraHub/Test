@@ -6,6 +6,11 @@ local Window = redzlib:MakeWindow({
   SaveFolder = ""
 })
 
+Window:AddMinimizeButton({
+  Button = { Image = "rbxassetid://18751483361", BackgroundTransparency = 0 },
+  Corner = { CornerRadius = UDim.new(0, 6) }
+})
+
 local Tab1 = Window:MakeTab({"Auto Farm - ออโต้ฟาม", "swords"})
 local Tab2 = Window:MakeTab({"Teleport - วาป", "swords"})
 local Tab3 = Window:MakeTab({"other - อื่นๆ", "swords"})
@@ -387,7 +392,7 @@ local Toggle3 = Tab3:AddToggle({
 
 
 Tab6:AddDiscordInvite({
-  Name = "redz Hub | Community",
+  Name = "Rimura Hub | Community",
   Logo = "rbxassetid://18678079705",
   Invite = "https://discord.com/invite/Dmg8EJ2neK"
 })
