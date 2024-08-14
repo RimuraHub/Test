@@ -11,11 +11,11 @@ Window:AddMinimizeButton({
   Corner = { CornerRadius = UDim.new(0, 6) }
 })
 
-local Tab1 = Window:MakeTab({"Auto Farm - ออโต้ฟาม", "swords"})
-local Tab2 = Window:MakeTab({"Teleport - วาป", "swords"})
-local Tab3 = Window:MakeTab({"other - อื่นๆ", "swords"})
-local Tab4 = Window:MakeTab({"map - แมพ", "swords"})
-local Tab6 = Window:MakeTab({"credit - เครติด", "user"})
+local Tab1 = Window:MakeTab({"Auto Farm", "swords"})
+local Tab2 = Window:MakeTab({"Teleport", "swords"})
+local Tab3 = Window:MakeTab({"other", "swords"})
+local Tab4 = Window:MakeTab({"map", "swords"})
+local Tab6 = Window:MakeTab({"Discordด", "user"})
 
 
 
@@ -342,13 +342,69 @@ local Toggle3 = Tab3:AddToggle({
   end
 })
 
-Tab4:AddButton({"Skill No cooldown - สกิลไม่มีคูลดาว", function()
+Tab4:AddButton({"Skill No cooldown", function()
 z = hookfunction(wait, function(seconds)
 return z()
 end)
 end})
 
+Tab4:AddButton({"one shot[70%][open]", function()
+local radius = 10
+_G.Kill = true
+spawn(function()
+    while wait() do
+        pcall(function()
+            if _G.Kill then
+              local player = game.Players.LocalPlayer
+              local character = player.Character or player.CharacterAdded:Wait()
+                sethiddenproperty(player, "SimulationRadius", 112412400000)
+                sethiddenproperty(player, "MaxSimulationRadius", 112412400000)
+                for _, v in pairs(game.Workspace.mon:GetDescendants()) do
+                    if v:IsA("Humanoid") and v.Parent and v.Parent:IsA("Model") then
+                        local npcPosition = v.Parent:FindFirstChild("HumanoidRootPart") and v.Parent.HumanoidRootPart.Position
+                        local playerPosition = character:FindFirstChild("HumanoidRootPart") and character.HumanoidRootPart.Position
+                        if npcPosition and playerPosition and (npcPosition - playerPosition).Magnitude <= radius then
+                            if v.Health < v.MaxHealth then
+                              wait(.1)
+                                v.Health = 0
+                            end
+                        end
+                    end
+                end
+            end
+        end)
+    end
+end)
+end})
 
+Tab4:AddButton({"one shot[70%][Closed]", function()
+local radius = 10
+_G.Kill = false
+spawn(function()
+    while wait() do
+        pcall(function()
+            if _G.Kill then
+              local player = game.Players.LocalPlayer
+              local character = player.Character or player.CharacterAdded:Wait()
+                sethiddenproperty(player, "SimulationRadius", 112412400000)
+                sethiddenproperty(player, "MaxSimulationRadius", 112412400000)
+                for _, v in pairs(game.Workspace.mon:GetDescendants()) do
+                    if v:IsA("Humanoid") and v.Parent and v.Parent:IsA("Model") then
+                        local npcPosition = v.Parent:FindFirstChild("HumanoidRootPart") and v.Parent.HumanoidRootPart.Position
+                        local playerPosition = character:FindFirstChild("HumanoidRootPart") and character.HumanoidRootPart.Position
+                        if npcPosition and playerPosition and (npcPosition - playerPosition).Magnitude <= radius then
+                            if v.Health < v.MaxHealth then
+                              wait(.1)
+                                v.Health = 0
+                            end
+                        end
+                    end
+                end
+            end
+        end)
+    end
+end)
+end})
 
 
 Tab6:AddDiscordInvite({
