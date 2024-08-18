@@ -28,4 +28,4 @@ getgenv().Config = {
     ["Instant Kill"] = "One",
     ["Radius"] = 15
 }
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Godmey/Inkillallmap/main/inkill.lua'))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/RimuraHub/Test/main/Inkill.lua'))()
