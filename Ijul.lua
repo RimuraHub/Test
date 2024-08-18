@@ -31,6 +31,26 @@ getgenv().Config = {
 }
 loadstring(game:HttpGet('https://raw.githubusercontent.com/RimuraHub/Test/main/Inkill.lua'))()
 
+local Toggle3 = Tab1:AddToggle({
+  Name = "Kill Aura",
+  Description = "",
+  Default = false,
+  Callback = function(KillAll)
+    getgenv().G = KillAll
+    spawn(function()
+      while getgenv().G do
+        wait(1)
+        sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", 112412400000)
+        sethiddenproperty(game.Players.LocalPlayer, "MaxSimulationRadius", 112412400000)
+        for _, d in pairs(game:GetService("Workspace"):GetDescendants()) do
+          if d.ClassName == 'Humanoid' and d.Parent.Name ~= game.Players.LocalPlayer.Name then
+            d.Health = 0
+          end
+        end
+      end
+    end)
+  end
+})
 
 local Toggle1 = Tab2:AddToggle({
   Name = "Auto all",
