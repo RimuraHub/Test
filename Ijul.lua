@@ -31,23 +31,6 @@ getgenv().Config = {
 }
 loadstring(game:HttpGet('https://raw.githubusercontent.com/RimuraHub/Test/main/Inkill.lua'))()
 
-local Toggle1 = Tab1:AddToggle({
-  Name = "OneShot[BossSpawns]",
-  Description = "",
-  Default = false,
-  Callback = function(GG)
-    Two = GG
-  end
-})
-
-
-getgenv().Config = {
-    ["Folder Mon"] = "BossSpawns",
-    ["Instant Kill"] = "Two",
-    ["Radius"] = 15
-}
-loadstring(game:HttpGet('https://raw.githubusercontent.com/RimuraHub/Test/main/Inkill.lua'))()
-
 
 local Toggle1 = Tab2:AddToggle({
   Name = "Auto all",
