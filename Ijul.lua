@@ -29,7 +29,7 @@ getgenv().Config = {
     ["Instant Kill"] = "One",
     ["Radius"] = 15
 }
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Godmey/Inkillallmap/main/inkill.lua'))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/RimuraHub/Test/main/Inkill.lua'))()
 
 local Toggle1 = Tab1:AddToggle({
   Name = "OneShot[BossSpawns]",
@@ -46,7 +46,7 @@ getgenv().Config = {
     ["Instant Kill"] = "Two",
     ["Radius"] = 15
 }
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Godmey/Inkillallmap/main/inkill.lua'))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/RimuraHub/Test/main/Inkill.lua'))()
 
 
 local Toggle1 = Tab2:AddToggle({
