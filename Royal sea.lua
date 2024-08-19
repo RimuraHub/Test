@@ -27,24 +27,44 @@ local Toggle1 = Tab1:AddToggle({
   end
 })
 
-function A()
-    game:GetService('VirtualUser'):CaptureController()
-    game:GetService('VirtualUser'):Button1Down(Vector2.new(1280, 672))
+function Attack()
+    local VirtualUser = game:GetService('VirtualUser')
+    VirtualUser:CaptureController()
+    VirtualUser:ClickButton1(Vector2.new(1280, 672), game:GetService("Workspace").Camera.CFrame)
+end
+
+function TP(CFrame)
+    pcall(function()
+        local humanoidRootPart = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+        if humanoidRootPart then
+            humanoidRootPart.CFrame = CFrame
+        else
+            wait(2)
+        end
+    end)
 end
 
 spawn(function()
-    while wait() do
+    while true do
+        task.wait()  -- ใช้ task.wait() แทน wait()
         pcall(function()
             if _G.a then
-                for i, v in pairs(game:GetService("Workspace").Raid.Light.Mon:GetDescendants()) do
-                    -- แก้เงื่อนไขตามความต้องการ
-                    if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health >= 1 then
-                        repeat
-                            A()
-                            wait()
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, 5)
-                        until _G.a == false or v.Humanoid.Health <= 0
-                    end
+                local raidMon = game:GetService("Workspace").Raid.Light.Mon
+                for _, v in pairs(raidMon:GetDescendants()) do
+                    local humanoid = v:FindFirstChild("Humanoid")
+                    local hrp = v:FindFirstChild("HumanoidRootPart")
+                    if hrp and humanoid and humanoid.Health > 0 then
+                                humanoid.WalkSpeed = 0
+                                humanoid.JumpPower = 0
+                                v.HumanoidRootPart.CanCollide = false
+                                repeat
+                                    task.wait()
+                                    Attack()
+                                    if _G.a and humanoid.Health > 1 then
+                                        TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 6, 0) * CFrame.Angles(math.rad(-90), 0, 0))
+                                    end
+                                until not _G.a or humanoid.Health <= 0
+                            end
                 end
             end
         end)
@@ -60,28 +80,48 @@ local Toggle1 = Tab1:AddToggle({
   Description = "",
   Default = false,
   Callback = function(Hee)
-  _G.a = Hee
+    _G.a = Hee
   end
 })
 
-function A()
-    game:GetService('VirtualUser'):CaptureController()
-    game:GetService('VirtualUser'):Button1Down(Vector2.new(1280, 672))
+function Attack()
+    local VirtualUser = game:GetService('VirtualUser')
+    VirtualUser:CaptureController()
+    VirtualUser:ClickButton1(Vector2.new(1280, 672), game:GetService("Workspace").Camera.CFrame)
+end
+
+function TP(CFrame)
+    pcall(function()
+        local humanoidRootPart = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+        if humanoidRootPart then
+            humanoidRootPart.CFrame = CFrame
+        else
+            wait(2)
+        end
+    end)
 end
 
 spawn(function()
-    while wait() do
+    while true do
+        task.wait()  -- ใช้ task.wait() แทน wait()
         pcall(function()
             if _G.a then
-                for i, v in pairs(game:GetService("Workspace").Raid.Quake.Mon:GetDescendants()) do
-                    -- แก้เงื่อนไขตามความต้องการ
-                    if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health >= 1 then
-                        repeat
-                            A()
-                            wait()
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, 5)
-                        until _G.a == false or v.Humanoid.Health <= 0
-                    end
+                local raidMon = game:GetService("Workspace").Raid.Quake.Mon
+                for _, v in pairs(raidMon:GetDescendants()) do
+                    local humanoid = v:FindFirstChild("Humanoid")
+                    local hrp = v:FindFirstChild("HumanoidRootPart")
+                    if hrp and humanoid and humanoid.Health > 0 then
+                                humanoid.WalkSpeed = 0
+                                humanoid.JumpPower = 0
+                                v.HumanoidRootPart.CanCollide = false
+                                repeat
+                                    task.wait()
+                                    Attack()
+                                    if _G.a and humanoid.Health > 1 then
+                                        TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 6, 0) * CFrame.Angles(math.rad(-90), 0, 0))
+                                    end
+                                until not _G.a or humanoid.Health <= 0
+                            end
                 end
             end
         end)
