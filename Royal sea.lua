@@ -91,3 +91,27 @@ end)
 Tab1:AddButton({"teleport Quake", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3636.79, 18.4748, 1342.64)
 end})
+
+
+
+
+local Toggle3 = Tab3:AddToggle({
+  Name = "Kill Aura",
+  Description = "",
+  Default = false,
+  Callback = function(KillAll)
+    getgenv().G = KillAll
+    spawn(function()
+      while getgenv().G do
+        wait(1)
+        sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", 112412400000)
+        sethiddenproperty(game.Players.LocalPlayer, "MaxSimulationRadius", 112412400000)
+        for _, d in pairs(game:GetService("Workspace"):GetDescendants()) do
+          if d.ClassName == 'Humanoid' and d.Parent.Name ~= game.Players.LocalPlayer.Name then
+            d.Health = 0
+          end
+        end
+      end
+    end)
+  end
+})
