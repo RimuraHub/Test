@@ -95,7 +95,7 @@ end})
 
 
 
-local Toggle3 = Tab3:AddToggle({
+local Toggle3 = Tab1:AddToggle({
   Name = "Kill Aura",
   Description = "",
   Default = false,
