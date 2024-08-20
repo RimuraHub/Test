@@ -21,7 +21,7 @@ spawn(function()
                         
                         if MonPoz and PlayerPoz and (MonPoz - PlayerPoz).Magnitude <= getgenv().Config["Radius"] then
                             if v.Health < v.MaxHealth then
-                                wait(.1)
+                                task.wait()
                                 v.Health = 0
                             end
                         end
