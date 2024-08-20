@@ -6,6 +6,11 @@ local Window = redzlib:MakeWindow({
   SaveFolder = ""
 })
 
+Window:AddMinimizeButton({
+  Button = { Image = "rbxassetid://18751483361", BackgroundTransparency = 0 },
+  Corner = { CornerRadius = UDim.new(0, 6) }
+})
+
 local Tab1 = Window:MakeTab({"one shot", "swords"})
 local Tab2 = Window:MakeTab({"Auto", "swords"})
 
