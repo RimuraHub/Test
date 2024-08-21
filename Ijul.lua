@@ -6,18 +6,67 @@ local Window = redzlib:MakeWindow({
   SaveFolder = ""
 })
 
-Window:AddMinimizeButton({
-  Button = { Image = "rbxassetid://18751483361", BackgroundTransparency = 0 },
-  Corner = { CornerRadius = UDim.new(0, 6) }
-})
-
-local Tab1 = Window:MakeTab({"one shot", "swords"})
+local Tab1 = Window:MakeTab({"Farm", "Home"})
 local Tab2 = Window:MakeTab({"Auto", "swords"})
 
 
 
 
 
+
+
+local Toggle1 = Tab1:AddToggle({
+  Name = "FarmBossSpawn",
+  Description = "",
+  Default = false,
+  Callback = function(Hee)
+    _G.a = Hee
+  end
+})
+
+function Attack()
+    local VirtualUser = game:GetService('VirtualUser')
+    VirtualUser:CaptureController()
+    VirtualUser:ClickButton1(Vector2.new(1280, 672), game:GetService("Workspace").Camera.CFrame)
+end
+
+function TP(CFrame)
+    pcall(function()
+        local humanoidRootPart = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+        if humanoidRootPart then
+            humanoidRootPart.CFrame = CFrame
+        else
+            wait(2)
+        end
+    end)
+end
+
+spawn(function()
+    while true do
+        task.wait()  -- ใช้ task.wait() แทน wait()
+        pcall(function()
+            if _G.a then
+                local raidMon = game:GetService("Workspace").BossSpawns.BossSpawn
+                for _, v in pairs(raidMon:GetDescendants()) do
+                    local humanoid = v:FindFirstChild("Humanoid")
+                    local hrp = v:FindFirstChild("HumanoidRootPart")
+                    if hrp and humanoid and humanoid.Health > 0 then
+                                humanoid.WalkSpeed = 0
+                                humanoid.JumpPower = 0
+                                v.HumanoidRootPart.CanCollide = false
+                                repeat
+                                    task.wait()
+                                    Attack()
+                                    if _G.a and humanoid.Health > 1 then
+                                        TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 8, 0) * CFrame.Angles(math.rad(-90), 0, 0))
+                                    end
+                                until not _G.a or humanoid.Health <= 0
+                            end
+                end
+            end
+        end)
+    end
+end)
 
 local Toggle1 = Tab1:AddToggle({
   Name = "OneShot",
