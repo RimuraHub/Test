@@ -6,6 +6,11 @@ local Window = redzlib:MakeWindow({
   SaveFolder = ""
 })
 
+Window:AddMinimizeButton({
+  Button = { Image = "rbxassetid://18751483361", BackgroundTransparency = 0 },
+  Corner = { CornerRadius = UDim.new(0, 6) }
+})
+
 local Tab1 = Window:MakeTab({"Farm", "Home"})
 local Tab2 = Window:MakeTab({"Auto", "swords"})
 
@@ -68,6 +73,8 @@ spawn(function()
     end
 end)
 
+local Section = Tab1:AddSection({"One Shot"})
+
 local Toggle1 = Tab1:AddToggle({
   Name = "OneShot",
   Description = "",
@@ -101,6 +108,8 @@ getgenv().Config = {
     ["Radius"] = 15
 }
 loadstring(game:HttpGet('https://raw.githubusercontent.com/RimuraHub/Test/main/Inkill2.lua'))()
+
+local Section = Tab1:AddSection({"Kill Aura"})
 
 local Toggle3 = Tab1:AddToggle({
   Name = "Kill Aura",
