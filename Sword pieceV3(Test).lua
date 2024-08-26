@@ -68,23 +68,6 @@ end)
 local Section= Tab1:AddSection({"Fast Attack[equipweapon]"})
 
 local Toggle1 = Tab1:AddToggle({
-  Name = "DarkYoru",
-  Description = "",
-  Default = false,
-  Callback = function(me)
-         _G.Auto = me
-    while _G.Auto do
-        wait()
-        local args = {
-    [1] = game:GetService("Players").LocalPlayer.Character.DarkYoru.Handle
-}
-
-game:GetService("Players").LocalPlayer.Character.DarkYoru.Combo.C1:FireServer(unpack(args))
-    end
-  end
-})
-
-local Toggle1 = Tab1:AddToggle({
   Name = "King_Sword",
   Description = "",
   Default = false,
@@ -310,6 +293,10 @@ Tab2:AddButton({"BigTree_Island", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1579.7244873046875, 20.62343406677246, -101.03346252441406)
 end})
 
+Tab2:AddButton({"Moai_Island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-59.6111069, 15.5288982, 2304.18384, 0, 0, 1, 0, 1, -0, -1, 0, 0)
+end})
+
 local Section = Tab2:AddSection({"TeleportBossIsland - วาปเกาะบอส"})
 
 Tab2:AddButton({"Shank_island", function()
@@ -467,18 +454,6 @@ end})
 
 local Section= Tab4:AddSection({"Skill Z"})
 
-local Toggle1 = Tab4:AddToggle({
-  Name = "DarkYoru",
-  Description = "",
-  Default = false,
-  Callback = function(me)
-         _G.Auto = me
-    while _G.Auto do
-        wait(0.3)
-        game:GetService("Players").LocalPlayer.Character.DarkYoru.SkillZ.Fire:FireServer()
-    end
-  end
-})
 
 local Toggle1 = Tab4:AddToggle({
   Name = "King_Sword",
@@ -590,18 +565,7 @@ local Toggle1 = Tab4:AddToggle({
 
 local Section= Tab5:AddSection({"Skill Z"})
 
-local Toggle1 = Tab5:AddToggle({
-  Name = "DarkYoru",
-  Description = "",
-  Default = false,
-  Callback = function(me)
-         _G.Auto = me
-    while _G.Auto do
-        wait(0.3)
-        game:GetService("Players").LocalPlayer.Backpack.DarkYoru.SkillZ.Fire:FireServer()
-    end
-  end
-})
+
 
 local Toggle1 = Tab5:AddToggle({
   Name = "King_Sword",
@@ -774,9 +738,6 @@ local Dropdown = Tab6:AddDropdown({
     end
 })
 
-Tab6:AddButton({"DarkYoru", function()
-game:GetService("ReplicatedStorage").Remotes.Inventory:FireServer("DarkYoru")
-end})
 
 Tab6:AddButton({"Guitar", function()
 game:GetService("ReplicatedStorage").Remotes.Inventory:FireServer("Guitar")
