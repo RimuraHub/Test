@@ -66,13 +66,13 @@ end)
 
 
 
-local Section = Tab1:AddSection({"Auto FarmMon"})
+local Section = Tab1:AddSection({"Auto FarmMon[Don't work for now]"})
 
 
 
 local Mob = {}
 
-for i, v in pairs(game:GetService("Workspace").Mon:GetChildren()) do
+for i, v in pairs(game:GetService("Workspace").SpawnEnemy:GetChildren()) do
     table.insert(Mob,v.Name)
 end
 
