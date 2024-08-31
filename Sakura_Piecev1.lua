@@ -210,37 +210,31 @@ Tab2:AddButton({"Click to teleport", function()
 local Section = Tab2:AddSection({"Teleport"})
 
 
-Tab2:AddButton({"Starter_Island", function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1165.9600830078125, 148.92855834960938, 290.9679260253906)
-end})
+local NP4 = {}
 
-Tab2:AddButton({"Desert_island", function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(486.03900146484375, 125.90441131591797, -1499.7667236328125)
-end})
+for i, v in pairs(game:GetService("Workspace").Island:GetChildren()) do
+    table.insert(NP4,v.Name)
+end
 
-Tab2:AddButton({"Marine_island", function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2526.18115234375, 143.542724609375, 970.0589599609375)
-end})
+local Dropdown = Tab2:AddDropdown({
+    Name = "Select Island",
+    Description = "เลือกเกาะ",
+    Options = NP4,
+    Default = nil,
+    Flag = "dropdown teste",
+    Callback = function(WoW)
+ NPCCNA = WoW
+end
+})
 
-Tab2:AddButton({"Buggy_Islan", function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2221.047607421875, 154.97042846679688, -510.9023132324219)
-end})
-
-Tab2:AddButton({"Snow_island", function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-949.1493530273438, 126.75444030761719, -1080.3372802734375)
-end})
-
-Tab2:AddButton({"Gojo_island", function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(301.1205139160156, 110.69679260253906, 97.93156433105469)
-end})
-
-Tab2:AddButton({"Event_Island", function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1276.4683837890625, 203.23435974121094, 1663.792724609375)
-end})
-
-Tab2:AddButton({"Sea_beast_Island", function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3709.289306640625, 191.15379333496094, 136.58079528808594)
-end})
+Tab2:AddButton({"Click to teleport - คลิกเพื่อเทเลพอร์ต", function()
+        for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
+            if v.Name == NPCCNA then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.WorldPivot * CFrame.new(0, 10, 0)
+            end
+        end
+    end
+})
 			
 local Section = Tab2:AddSection({"TeleportNPC"})
 
