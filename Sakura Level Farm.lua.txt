@@ -1,0 +1,254 @@
+function CheckLevel()
+    level = game.Players.LocalPlayer.Data.Levels.Value
+    local Island, Mon, Quest, CFrameMap
+    if level >= 1 and level <= 499 then
+        Island = "Starter Island"
+        Mon = "Bandit"
+        Quest = "Bandit [Lv.1]"
+        CFrameMap = CFrame.new(-1029.5448, 111.854706, 333.617798, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif level >= 500 and level <= 1249 then
+        Island = "Starter Island"
+        Mon = "Bandit Pro"
+        Quest = "Bandit Pro [Lv.500]"
+        CFrameMap = CFrame.new(-1029.5448, 111.854706, 333.617798, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif level >= 1250 and level <= 1999 then
+        Island = "Starter Island"
+        Mon = "Lightning Bandit"
+        Quest = "Lightning Bandit [Lv.1250]"
+        CFrameMap = CFrame.new(-1029.5448, 111.854706, 333.617798, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif level >= 2000 and level <= 2249 then
+        Island = "Starter Island"
+        Mon = "IShowSpeed"
+        Quest = "IShowSpeed [Lv.2000]"
+        CFrameMap = CFrame.new(-1029.5448, 111.854706, 333.617798, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif level >= 2250 and level <= 2649 then
+        Island = "Shell Town"
+        Mon = "Koby"
+        Quest = "Koby [Lv.2250]"
+        CFrameMap = CFrame.new(-2712.96509, 198.115967, 1119.99353, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif level >= 2650 and level <= 2999 then
+        Island = "Shell Town"
+        Mon = "Marine Captain"
+        Quest = "Marine Captain [Lv.2650]"
+        CFrameMap = CFrame.new(-2712.96509, 198.115967, 1119.99353, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif level >= 3000 and level <= 3499 then
+        Island = "Shell Town"
+        Mon = "Ax Hand"
+        Quest = "Ax Hand [Lv.3000]"
+        CFrameMap = CFrame.new(-2712.96509, 198.115967, 1119.99353, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif level >= 3500 and level <= 3849 then
+        Island = "Clown Island"
+        Mon = "Clown"
+        Quest = "Clown [Lv.3500]"
+        CFrameMap = CFrame.new(-2303.61987, 215.812988, -697.979736, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+    elseif level >= 3850 and level <= 4499 then
+        Island = "Clown Island"
+        Mon = "Clown Pirates"
+        Quest = "Clown Pirates [Lv.3850]"
+        CFrameMap = CFrame.new(-2303.61987, 215.812988, -697.979736, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+    elseif level >= 4500 and level <= 4949 then
+        Island = "Clown Island"
+        Mon = "Becky"
+        Quest = "Becky [Lv.4500]"
+        CFrameMap = CFrame.new(-2303.61987, 215.812988, -697.979736, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+    elseif level >= 4950 and level <= 5499 then
+        Island = "Snow Island"
+        Mon = "Yeti"
+        Quest = "Yeti [Lv.4950]"
+        CFrameMap = CFrame.new(-958.843445, 222.390274, -1712.97046, 0.995146096, 0, -0.0984086543, -0, 1, -0, 0.0984086543, 0, 0.995146096)
+    elseif level >= 5500 and level <= 5999 then
+        Island = "Snow Island"
+        Mon = "Snow Man"
+        Quest = "Snow Man [Lv.5500]"
+        CFrameMap = CFrame.new(-958.843445, 222.390274, -1712.97046, 0.995146096, 0, -0.0984086543, -0, 1, -0, 0.0984086543, 0, 0.995146096)
+    elseif level >= 6000 and level <= 6349 then
+        Island = "Snow Island"
+        Mon = "Snow Dragon"
+        Quest = "Snow Dragon [Lv.6000]"
+        CFrameMap = CFrame.new(-958.843445, 222.390274, -1712.97046, 0.995146096, 0, -0.0984086543, -0, 1, -0, 0.0984086543, 0, 0.995146096)
+    elseif level >= 6350 and level <= 6724 then
+        Island = "Desert Village"
+        Mon = "Sand Bandit"
+        Quest = "Sand Bandit [Lv.6350]"
+        CFrameMap = CFrame.new(804.211548, 233.697205, -1220.52954, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif level >= 6725 and level <= 7249 then
+        Island = "Desert Village"
+        Mon = "Chopper"
+        Quest = "Chopper [Lv.6725]"
+        CFrameMap = CFrame.new(804.211548, 233.697205, -1220.52954, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif level >= 7250 and level <= 7999 then
+        Island = "Desert Village"
+        Mon = "Lord Dark"
+        Quest = "Lord Dark [Lv.7250]"
+        CFrameMap = CFrame.new(804.211548, 233.697205, -1220.52954, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif level >= 8000 then
+        Island = "Desert Village"
+        Mon = "Nuggets Man"
+        Quest = "Nuggets Man [Lv.8000]"
+        CFrameMap = CFrame.new(804.211548, 233.697205, -1220.52954, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    end
+    
+    return Island, Mon, Quest, CFrameMap
+end
+
+
+
+
+local CheckQ = game.Players.LocalPlayer.PlayerGui.QuestUI.Interface
+function Attack()
+    local VirtualUser = game:GetService('VirtualUser')
+    VirtualUser:CaptureController()
+    VirtualUser:ClickButton1(Vector2.new(851, 158), game:GetService("Workspace").Camera.CFrame)
+end
+
+
+redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Source.Lua"))()
+
+local Window = redzlib:MakeWindow({
+  Title = "Rimura Hub : Sakura Piece",
+  SubTitle = "",
+  SaveFolder = ""
+})
+
+Window:AddMinimizeButton({
+  Button = { Image = "rbxassetid://18751483361", BackgroundTransparency = 0 },
+  Corner = { CornerRadius = UDim.new(0, 6) }
+})
+
+local T1 = Window:MakeTab({"Auto Farm", "swords"})
+
+T1:AddSection({"| Select Weapon"})
+
+-- Dropdown
+T1:AddDropdown({
+  Name = "Select Weapon",
+  Options = {"Melee", "Sword", "Devil Fruit"},
+  Default = nil,
+  Flag = "Weapon",
+  Callback = function(Value)
+    _G.Weaponn = Value
+  end
+})
+
+
+function EquipWea()
+  for _, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    if v:IsA("Tool") and v.ToolTip == _G.Weaponn then
+        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+    end
+  end
+end
+
+T1:AddSection({"| Auto Farm"})
+local Toggle1 = T1:AddToggle({
+  Name = "Auto Farm Level",
+  Default = false,
+  Callback = function(Level)
+    _G.AutoFarmlv = Level
+      if _G.AutoFarmlv  then
+          game:GetService("ReplicatedStorage").RemoteEvent.Quest:FireServer("None")
+      end
+  end
+})
+local Toggle1 = T1:AddToggle({
+  Name = "OneShot Mon | Farm",
+  Default = false,
+  Callback = function(OON)
+    getgenv().Config = {
+    ["Folder Mon"] = "SpawnEnemy",
+    ["Instant Kill"] = OON,
+    ["Radius"] = 30
+}
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Godmey/Inkillallmap/main/inkill.lua'))()
+  end
+})
+
+
+
+spawn(function()
+    local GOTOCFRAME = false
+    while wait() do
+        pcall(function()
+            if _G.AutoFarmlv then
+                local Island, Mon, Quest, CFrameMap = CheckLevel()
+                if not GOTOCFRAME then
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMap
+                    GOTOCFRAME = true
+                end
+                if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") or game.Players.LocalPlayer.Character.Humanoid.Health <= 0 then
+                  wait(3)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMap
+                end
+                if CheckQ.Visible then
+                    for _, v in pairs(workspace.SpawnEnemy[Island][Mon]:GetDescendants()) do
+                        if v:IsA("Model") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                            v.Humanoid.WalkSpeed = 0
+                            v.Humanoid.JumpPower = 0
+                            HHHHHHH = workspace.SpawnEnemy[Island][Mon]:FindFirstChildOfClass("Model")
+                            repeat
+                                wait()
+                                EquipWea()
+                                Attack()
+                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, 4)
+                            until not _G.AutoFarmlv or v.Humanoid.Health <= 0
+                        end
+                    end
+                else
+                    local XXXXXX = false
+                    for _, y in pairs(game:GetService("Workspace").Q:GetChildren()) do
+                        if y.Name == Quest and y:FindFirstChild("HumanoidRootPart") then
+                            XXXXXX = true
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame * CFrame.new(0, 5, 0)
+                            wait(0.1)
+                            for _, v in pairs(y:GetDescendants()) do
+                                if v:IsA("ProximityPrompt") then
+                                    wait(0.1)
+                                    fireproximityprompt(v)
+                                    break
+                                end
+                            end
+                        end
+                    end
+                    local Gui = game.Players.LocalPlayer.Quest.PQuest.Value
+                    if Quest ~= "None" then
+                        if Gui ~= Quest then
+                            game:GetService("ReplicatedStorage").RemoteEvent.Quest:FireServer("None")
+                        end
+                    end
+                    wait(1)
+                    if not XXXXXX or not HHHHHHH then
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMap
+                    end
+                end
+            end
+        end)
+    end
+end)
+spawn(function()
+    game:GetService("RunService").Stepped:Connect(function()
+        if _G.AutoFarmlv then
+            local character = game.Players.LocalPlayer.Character
+            if character then
+                for _, v in ipairs(character:GetDescendants()) do
+                    if v:IsA("BasePart") and v.CanCollide then
+                        v.CanCollide = false
+                    end
+                end
+            end
+            local hrp = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+            if hrp and not hrp:FindFirstChild("BodyClip") then
+                local noclip = Instance.new("BodyVelocity")
+                noclip.Name = "BodyClip"
+                noclip.Parent = hrp
+                noclip.MaxForce = Vector3.new(100000, 100000, 100000)
+                noclip.Velocity = Vector3.new(0, 0, 0)
+            end
+        else
+            local hrp = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+            if hrp and hrp:FindFirstChild("BodyClip") then
+                hrp.BodyClip:Destroy()
+            end
+        end
+    end)
+end)
+
