@@ -70,6 +70,11 @@ local Section = Tab1:AddSection({"Auto FarmMon[Don't work for now]"})
 
 
 
+Tab1:AddButton({"Auto Farm Level by Kill Hub", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RimuraHub/Test/main/Sakura%20Level%20Farm.lua.txt"))()
+end
+})
+
 local Mob = {}
 
 for i, v in pairs(game:GetService("Workspace").SpawnEnemy:GetChildren()) do
