@@ -20,6 +20,53 @@ local Tab1 = Window:MakeTab({"Raid", "swords"})
 
 
 
+
+local Weaponlist = {}
+local Weapon = nil
+
+local function refreshWeaponList()
+    Weaponlist = {}
+    for _,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+        table.insert(Weaponlist,v.Name)
+    end
+end
+
+refreshWeaponList()
+
+local WE = Tab:AddDropdown({
+  Name = "Select Weapon",
+  Description = "Choose Weapon",
+  Options = Weaponlist,
+  Default = nil,
+  Flag = "dropdown teste",
+  Callback = function(B)
+     Weapon = B
+  end
+})
+
+
+
+local Toggle1 = Tab:AddToggle({
+  Name = "Auto Equip",
+  Description = "Auto Equip",
+  Default = false,
+  Callback = function(GG)
+    AutoEquiped = GG
+  end
+})
+
+spawn(function()
+  while wait() do
+    if AutoEquiped then
+      pcall(function()
+        game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon))
+      end)
+    end
+  end
+end)
+
+
+
 local Toggle1 = Tab:AddToggle({
   Name = "Auto Farm Level",
   Description = "",
