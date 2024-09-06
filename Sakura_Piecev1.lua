@@ -16,6 +16,7 @@ local Tab2 = Window:MakeTab({"Teleport", "Locate"})
 local Tab3 = Window:MakeTab({"Misc", "swords"})
 local Tab4 = Window:MakeTab({"MAP", "swords"})
 local Tab5 = Window:MakeTab({"Farm Item", "swords"})
+local Tab7 = Window:MakeTab({"Raid", "swords"})
 local Tab6 = Window:MakeTab({"Discord", "Info"})
 
 
@@ -574,6 +575,11 @@ end
 end
   end
 })
+
+Tab7:AddButton({"Raid", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RimuraHub/Test/main/Raid%20Sakura.lua"))()
+end})
+
 
 Tab6:AddDiscordInvite({
   Name = "Rimura Hub | Community",
