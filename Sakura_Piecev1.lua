@@ -1,3 +1,6 @@
+local Distance = 300
+
+
 redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Source.Lua"))()
 
 local Window = redzlib:MakeWindow({
@@ -67,7 +70,7 @@ end)
 
 
 
-local Section = Tab1:AddSection({"Auto FarmMon[Don't work for now]"})
+local Section = Tab1:AddSection({"Auto FarmMon"})
 
 
 
@@ -75,6 +78,43 @@ Tab1:AddButton({"Auto Farm Level by Kill Hub", function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RimuraHub/Test/main/Sakura%20Level%20Farm.lua.txt"))()
 end
 })
+
+
+
+local Toggle1 = Tab1:AddToggle({
+  Name = "Auto Farm Nearest",
+  Default = false,
+  Callback = function(hee)
+  _G.Hee = hee
+  end
+})
+
+function A()
+  game:GetService'VirtualUser':CaptureController()
+game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+end
+
+spawn(function()
+    while wait() do
+        if _G.Hee then
+            pcall(function()
+                for _, v in pairs(workspace.SpawnEnemy:GetDescendants()) do
+                    if v:IsA("Model") and v:FindFirstChildOfClass("Humanoid") and v.Humanoid.Health > 0 then
+                        if game.Players.LocalPlayer:DistanceFromCharacter(v:FindFirstChild("HumanoidRootPart").Position) < Distance then
+                            v.Humanoid.WalkSpeed = 0
+                            v.Humanoid.JumpPower = 0
+                            repeat
+                                task.wait()
+                                A()
+                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, 2)
+                            until not _G.Hee or v.Humanoid.Health <= 0
+                        end
+                    end
+                end
+            end)
+        end
+    end
+end)
 
 local Mob = {}
 
@@ -116,7 +156,7 @@ local Dropdown = Tab1:AddDropdown({
 })
 
 local Toggle1 = Tab1:AddToggle({
-  Name = "Mon Farm",
+  Name = "Mon Farm[Don't work for now]",
   Description = "",
   Default = false,
   Callback = function(Hee)
@@ -148,7 +188,7 @@ spawn(function()
 end)
 
 local Toggle1 = Tab1:AddToggle({
-  Name = "Boss Farm",
+  Name = "Boss Farm[Don't work for now]",
   Description = "",
   Default = false,
   Callback = function(Hee)
