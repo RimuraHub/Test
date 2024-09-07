@@ -1,19 +1,15 @@
 redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Source.Lua"))()
 
 local Window = redzlib:MakeWindow({
-  Title = "Rimura Hub : CONDL Piece",
+  Title = "Rimura Hub : Condi Piece",
   SubTitle = "",
   SaveFolder = ""
-})
-
-Window:AddMinimizeButton({
-  Button = { Image = "rbxassetid://18751483361", BackgroundTransparency = 0 },
-  Corner = { CornerRadius = UDim.new(0, 6) }
 })
 
 local Tab1 = Window:MakeTab({"Auto Farm - ออโต้ฟาม", "swords"})
 local Tab2 = Window:MakeTab({"Teleport - วาป", "swords"})
 local Tab3 = Window:MakeTab({"other - อื่นๆ", "swords"})
+local Tab4 = Window:MakeTab({"Raid - อื่นๆ", "swords"})
 local Tab6 = Window:MakeTab({"credit - เครติด", "user"})
 
 
@@ -73,7 +69,7 @@ end)
 
 
 
-local Section = Tab1:AddSection({"Auto Farm - ออโต้ฟาม"})
+local Section = Tab1:AddSection({"Auto FarmMon - ออโต้ฟามมอน"})
 
 
 
@@ -94,59 +90,11 @@ local Dropdown = Tab1:AddDropdown({
     end
 })
 
-local boss = {}
-
-for i, v in pairs(game:GetService("Workspace").Monster.Boss:GetChildren()) do
-    table.insert(boss,v.Name)
-end
-
-local Dropdown = Tab1:AddDropdown({
-    Name = "Select boss",
-    Description = "",
-    Options = boss,
-    Default = nil,
-    Flag = "dropdown teste",
-    Callback = function(Value)
-        bossFarm = Value
-    end
-})
-
-local Toggle1 = Tab1:AddToggle({
-  Name = "Auto Farm mon",
-  Description = "ออโต้ฟามมอน",
-  Default = false,
-  Callback = function(Hee)
-  _G.a = Hee
-  end
-})
-
-function A()
-  game:GetService'VirtualUser':CaptureController()
-game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-end
-
-spawn(function()
-    while wait() do
-        pcall(function()
-            if _G.a then
-                for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
-                    if v.Name == MobFarm and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health >= 1 then
-                        repeat
-                           A()
-                            wait()
- game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, 5)
-                        until _G.a == false or v.Humanoid.Health <= 0
-                    end
-                end
-            end
-        end)
-    end
-end)
 
 
 local Toggle1 = Tab1:AddToggle({
-  Name = "Auto Farm Boss",
-  Description = "ออโต้ฟามบอส",
+  Name = "Auto Farm",
+  Description = "ออโต้ฟาม",
   Default = false,
   Callback = function(Hee)
   _G.b = Hee
@@ -162,7 +110,7 @@ spawn(function()
     while wait() do
         pcall(function()
             if _G.b then
-                for i, v in pairs(game:GetService("Workspace").Monster.Boss:GetDescendants()) do
+                for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
                     if v.Name == bossFarm and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health >= 1 then
                         repeat
                            A()
@@ -238,14 +186,7 @@ Tab2:AddButton({"Click to teleport - คลิกเพื่อเทเลพ�
     end
 })
 
-Tab2:AddButton({"Click to teleport[BugFix]", function()
-        for i, v in pairs(game:GetService("Workspace").Shop:GetChildren()) do
-            if v.Name == NPCNA then
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame * CFrame.new(0, 2, 0)
-            end
-        end
-    end
-})
+
 
 
 local Section = Tab2:AddSection({"Teleport - วาป"})
@@ -396,10 +337,72 @@ local Toggle3 = Tab3:AddToggle({
   end
 })
 
+local Raid = Tab4:AddToggle({
+    Name = "Seab1",
+    Description = "",
+    Default = false,
+    Callback = function(Hee)
+        _G.a = Hee
+    end
+})
 
+function Attack()
+    local VirtualUser = game:GetService("VirtualUser")
+    VirtualUser:CaptureController()
+    VirtualUser:ClickButton1(Vector2.new(1280, 672))  -- กดคลิกที่จุดบนหน้าจอ
+end
+
+function TP(CFrame)
+    pcall(function()
+        local player = game.Players.LocalPlayer
+        local humanoidRootPart = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+        if humanoidRootPart then
+            humanoidRootPart.CFrame = CFrame
+        end
+    end)
+end
+
+spawn(function()
+    while task.wait(0.1) do  -- ใช้ task.wait() เพื่อลดภาระการทำงาน
+        pcall(function()
+            if _G.a then  -- ตรวจสอบว่า toggle ถูกเปิดอยู่หรือไม่
+                local raidMonsters = workspace:FindFirstChild("Island") and workspace.Island:FindFirstChild("Normal Raid") and workspace.Island["Normal Raid"]:FindFirstChild("Raid Monster")
+                if raidMonsters then
+                    for _, monster in pairs(raidMonsters:GetDescendants()) do
+                        local humanoid = monster:FindFirstChild("Humanoid")
+                        local hrp = monster:FindFirstChild("HumanoidRootPart")
+                        
+                        if hrp and humanoid and humanoid.Health > 0 then
+                            -- ปรับแต่งคุณสมบัติของมอนสเตอร์
+                            humanoid.WalkSpeed = 0
+                            humanoid.JumpPower = 0
+                            hrp.Size = Vector3.new(20, 20, 20)
+                            hrp.Transparency = 0.9
+                            hrp.CanCollide = false
+
+                            repeat
+                                task.wait(0.1)  -- หน่วงเวลาการทำงานเล็กน้อยเพื่อลดภาระ
+                                Attack()  -- เรียกฟังก์ชันโจมตี
+
+                                if _G.a and humanoid.Health > 1 then
+                                    -- เคลื่อนย้ายผู้เล่นไปยังมอนสเตอร์
+                                    TP(hrp.CFrame * CFrame.new(0, 8, 0) * CFrame.Angles(math.rad(-90), 0, 0))
+                                end
+                            until not _G.a or humanoid.Health <= 0
+                        end
+                    end
+                end
+            end
+        end)
+    end
+end)
+
+Tab4:AddButton({"teleport Raid[Sea 1]", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(239.9482879638672, 54.174415588378906, 1878.5201416015625)
+end})
 
 Tab6:AddDiscordInvite({
-  Name = "Rimura Hub | Community",
+  Name = "redz Hub | Community",
   Logo = "rbxassetid://18678079705",
   Invite = "https://discord.com/invite/Dmg8EJ2neK"
 })
