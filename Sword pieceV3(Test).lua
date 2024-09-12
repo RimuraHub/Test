@@ -297,6 +297,11 @@ Tab2:AddButton({"Moai_Island", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-59.6111069, 15.5288982, 2304.18384, 0, 0, 1, 0, 1, -0, -1, 0, 0)
 end})
 
+Tab2:AddButton({"Zoro_Island", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(925.4235229492188, 137.55174255371094, 2267.825439453125)
+end})
+
+
 local Section = Tab2:AddSection({"TeleportBossIsland - วาปเกาะบอส"})
 
 Tab2:AddButton({"Shank_island", function()
