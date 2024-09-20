@@ -11,7 +11,7 @@ local Coin = workspace.Island.TD
 Tab1:CreateToggle("Auto Gem Slow", function(Gea)
   getgenv().Gem123 = Gea
 end)
-Tab1:CreateToggle("Auto Gem Slow", function(Con)
+Tab1:CreateToggle("Auto Coin Slow", function(Con)
   getgenv().Coin123 = Con
 end)
 Tab2:CreateToggle("Auto Gem Fast [Ping]", function(Gea1222)
@@ -51,11 +51,9 @@ end)
 spawn(function()
   while task.wait() do 
     pcall(function()
-      if getgenv().GemFast then
-        for i = 1, 500 do
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Gem.CFrame
+      if getgenv().GemFast then game:GetService("RunService").Stepped:Connect(function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Gem.CFrame
         fireproximityprompt(Gem.ProximityPrompt)
-        end
+        end)
       end
     end)
   end
@@ -65,10 +63,9 @@ spawn(function()
   while task.wait() do 
     pcall(function() 
       if getgenv().CoinFast then
-        for i = 1, 500 do 
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Coin.CFrame
+game:GetService("RunService").Stepped:Connect(function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Coin.CFrame
         fireproximityprompt(Coin.ProximityPrompt)
-        end
+        end)
       end
     end)
   end
