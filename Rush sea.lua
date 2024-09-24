@@ -252,10 +252,10 @@ T5:AddToggle({
 })
 
 T5:AddSection({"| Tools"})
-T5:AddButton({"Grabtools[pls 1 Click]", function()
+T5:AddButton({"Grabtools[Please don't use.]", function()
        for _, v in pairs(workspace:GetChildren()) do
           if v:IsA("Tool") and not v:FindFirstChild("Active") then
-            v.Handle.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+            v.Handle.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 15, 0)
           end
         end
     end
