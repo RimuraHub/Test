@@ -1,0 +1,212 @@
+
+local function GetName(Folder, Class)
+    local names = {}
+    for _, v in pairs(Folder:GetChildren()) do
+        if v:IsA(Class) then
+            table.insert(names, v.Name)
+        end
+    end
+    return names
+end
+
+local NameMap = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+local Wea = GetName(game.Players.LocalPlayer.Backpack, "Tool")
+function Attack()
+    local VirtualUser = game:GetService('VirtualUser')
+    VirtualUser:CaptureController()
+    VirtualUser:ClickButton1(Vector2.new(851, 158), game:GetService("Workspace").Camera.CFrame)
+end
+function EquipTool()
+      game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(_G.Weapib))
+end
+
+
+local RunService = game:GetService("RunService")
+local mobsFolder = workspace:FindFirstChild("Mobs")
+local monsters = {
+    "Thug [Lv.5]", "Thug Boss [Lv.15]", "Buggy [Lv.30]", 
+    "Marine [Lv.50]", "Vice Admiral [Lv.100]", "Mr.5 [Lv.150]", 
+    "Mr.1 [Lv.200]", "Mr.0 [Lv.250]", "Yeti [Lv.300]", 
+    "Giant Yeti [Lv.350]", "Sky Thief [Lv.400]", "Sky Judas [Lv.450]", 
+    "Enel [Lv.500]"
+}
+
+RunService.Heartbeat:Connect(function()
+    if mobsFolder then
+        for _, mon in ipairs(monsters) do
+            local monInstance = workspace:FindFirstChild(mon)
+            if monInstance then
+                monInstance.Parent = mobsFolder
+            end
+        end
+    end
+end)
+
+local function AddDropdown(tab, name, options, default, flag, callback)
+    tab:AddDropdown({
+        Name = name,
+        Options = options,
+        Default = default,
+        Flag = flag,
+        Callback = callback
+    })
+end
+
+local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Godmey/Redz-Ui/refs/heads/main/Ui.lua"))()
+local Window = redzlib:MakeWindow({
+    Title = "Rimura Hub : " .. NameMap,
+    SaveFolder = "",
+})
+
+Window:AddMinimizeButton({
+    Button = { Image = "rbxassetid://18751483361", BackgroundTransparency = 0 },
+    Corner = { CornerRadius = UDim.new(0, 6) },
+})
+
+local T1 = Window:MakeTab({"Discord", "Info"})
+local T2 = Window:MakeTab({"Auto Farm", "Home"})
+
+T1:AddDiscordInvite({
+    Name = "Rimura Hub | Community",
+    Logo = "rbxassetid://18751483361",
+    Invite = "https://discord.com/invite/Dmg8EJ2neK",
+})
+
+local Name = {
+    "Thug [Lv.5]", "Thug Boss [Lv.15]", "Buggy [Lv.30]", 
+    "Marine [Lv.50]", "Vice Admiral [Lv.100]", "Mr.5 [Lv.150]", 
+    "Mr.1 [Lv.200]", "Mr.0 [Lv.250]", "Yeti [Lv.300]", 
+    "Giant Yeti [Lv.350]", "Sky Thief [Lv.400]", "Sky Judas [Lv.450]", 
+    "Enel [Lv.500]",
+}
+
+local Quest = {
+    "BanditQuest", "BanditBossQuest", "BuggyQuest", 
+    "MarineQuest", "AdmiralQuest", "BombManQuest", 
+    "BladeManQuest", "SandManQuest", "YetiQuest", 
+    "GiantYetiQuest", "SkyThiefQuest", "SkyJudasQuest", 
+    "EnelQuest",
+}
+
+function BringMon(i)
+    local HitBox = 10
+    for _, v in pairs(workspace.Mobs:GetChildren()) do
+        if v:IsA("Model") and v.Name == i then
+            local humanoid = v:FindFirstChildOfClass("Humanoid")
+                v.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -6)
+                v.HumanoidRootPart.Size = Vector3.new(HitBox, HitBox, HitBox)
+                v.HumanoidRootPart.Transparency = 0.9
+                v.HumanoidRootPart.CanCollide = false
+                v.Head.CanCollide = false
+                humanoid:ChangeState(14)
+                humanoid.WalkSpeed = 0
+                humanoid.JumpPower = 0
+                sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+        end
+    end
+end
+T2:AddSection({"| Weapon"})
+AddDropdown(T2, "Select Weapon", Wea, "nil", "Weapon", function(Ji)
+    _G.Weapib = Ji
+end)
+
+T2:AddSection({"| Auto Farm Quest"})
+AddDropdown(T2, "Select Quest", Name, "nil", "Mon", function(aksiiwiw)
+    _G.SelQ = aksiiwiw
+end)
+T2:AddToggle({
+    Name = "Auto Farm Select Quest",
+    Default = false,
+    Callback = function(swidiwi)
+        _G.AQ = swidiwi
+    end
+})
+
+task.spawn(function()
+    while task.wait() do
+      pcall(function()
+        if _G.AQ then
+            local N, Q = nil, nil
+            if _G.SelQ == "Thug [Lv.5]" then
+                N = "Thug [Lv.5]"
+                Q = "BanditQuest"
+            elseif _G.SelQ == "Thug Boss [Lv.15]" then
+                N = "Thug Boss [Lv.15]"
+                Q = "BanditBossQuest"
+            elseif _G.SelQ == "Buggy [Lv.30]" then
+                N = "Buggy [Lv.30]"
+                Q = "BuggyQuest"
+            elseif _G.SelQ == "Marine [Lv.50]" then
+                N = "Marine [Lv.50]"
+                Q = "MarineQuest"
+            elseif _G.SelQ == "Vice Admiral [Lv.100]" then
+                N = "Vice Admiral [Lv.100]"
+                Q = "AdmiralQuest"
+            elseif _G.SelQ == "Mr.5 [Lv.150]" then
+                N = "Mr.5 [Lv.150]"
+                Q = "BombManQuest"
+            elseif _G.SelQ == "Mr.1 [Lv.200]" then
+                N = "Mr.1 [Lv.200]"
+                Q = "BladeManQuest"
+            elseif _G.SelQ == "Mr.0 [Lv.250]" then
+                N = "Mr.0 [Lv.250]"
+                Q = "SandManQuest"
+            elseif _G.SelQ == "Yeti [Lv.300]" then
+                N = "Yeti [Lv.300]"
+                Q = "YetiQuest"
+            elseif _G.SelQ == "Giant Yeti [Lv.350]" then
+                N = "Giant Yeti [Lv.350]"
+                Q = "GiantYetiQuest"
+            elseif _G.SelQ == "Sky Thief [Lv.400]" then
+                N = "Sky Thief [Lv.400]"
+                Q = "SkyThiefQuest"
+            elseif _G.SelQ == "Sky Judas [Lv.450]" then
+                N = "Sky Judas [Lv.450]"
+                Q = "SkyJudasQuest"
+            elseif _G.SelQ == "Enel [Lv.500]" then
+                N = "Enel [Lv.500]"
+                Q = "EnelQuest"
+            end
+            if game.Players.LocalPlayer.PlayerGui:FindFirstChild("Quest"):FindFirstChild("QuestUI"):FindFirstChild("QuestBox").Visible then
+                BringMon(N)
+                Attack()
+                EquipTool()
+                  else
+                if Q then
+                    game.Players.LocalPlayer.PlayerGui.Quest.QuestUI.QuestBox.LocalScript[Q]:FireServer()
+                    end
+                end
+            end
+        end)
+    end
+end)
+
+
+
+
+spawn(function()
+    game:GetService("RunService").Stepped:Connect(function()
+        if _G.Levelll then
+            for _, v in ipairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                if v:IsA("BasePart") and v.CanCollide then
+                    v.CanCollide = false
+                end
+            end
+            
+            local hrp = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+            if hrp and not hrp:FindFirstChild("BodyClip") then
+                local noclip = Instance.new("BodyVelocity")
+                noclip.Name = "BodyClip"
+                noclip.Parent = hrp
+                noclip.MaxForce = Vector3.new(100000, 100000, 100000)
+                noclip.Velocity = Vector3.new(0, 0, 0)
+            end
+        else
+            local hrp = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+            if hrp and hrp:FindFirstChild("BodyClip") then
+                hrp.BodyClip:Destroy()
+            end
+        end
+    end)
+end)
+
