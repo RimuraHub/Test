@@ -182,9 +182,11 @@ task.spawn(function()
     end
 end)
 
+T3:AddButton({"Tp raid", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1319.0094, 10.4204636, -2540.23682, 0.253878266, -5.0068234e-08, 0.967236161, 2.28553731e-09, 1, 5.11643243e-08, -0.967236161, -1.07788551e-08, 0.253878266)
+end})
 
-
-local Toggle3 = T3:AddToggle({
+T3:AddToggle({
   Name = "Kill Aura",
   Description = "",
   Default = false,
