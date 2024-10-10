@@ -65,6 +65,7 @@ Window:AddMinimizeButton({
 
 local T1 = Window:MakeTab({"Discord", "Info"})
 local T2 = Window:MakeTab({"Auto Farm", "Home"})
+local T3 = Window:MakeTab({"Raid", "Home"})
 
 T1:AddDiscordInvite({
     Name = "Rimura Hub | Community",
