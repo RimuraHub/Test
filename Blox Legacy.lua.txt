@@ -184,6 +184,26 @@ end)
 
 
 
+local Toggle3 = T3:AddToggle({
+  Name = "Kill Aura",
+  Description = "",
+  Default = false,
+  Callback = function(KillAll)
+    _G.G = KillAll
+    spawn(function()
+      while _G.G do
+        wait(1)
+        sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", 112412400000)
+        sethiddenproperty(game.Players.LocalPlayer, "MaxSimulationRadius", 112412400000)
+        for _, d in pairs(game:GetService("Workspace"):GetDescendants()) do
+          if d.ClassName == 'Humanoid' and d.Parent.Name ~= game.Players.LocalPlayer.Name then
+            d.Health = 0
+          end
+        end
+      end
+    end)
+  end
+})
 
 spawn(function()
     game:GetService("RunService").Stepped:Connect(function()
