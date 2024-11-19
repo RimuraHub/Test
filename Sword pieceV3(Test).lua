@@ -1,4 +1,4 @@
-redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Source.Lua"))()
+local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Godmey/Redz-Ui/refs/heads/main/Ui.lua"))()
 
 local Window = redzlib:MakeWindow({
   Title = "Rimura Hub : Sword Piece",
